@@ -1,6 +1,6 @@
 /* Set site-wide background color */
 body {
-  background-color: #ededed;
+  background-color: #fff;
 }
 
 /* Center the wrapper and add 244px left padding */
@@ -8,6 +8,7 @@ body {
   max-width: 948px;
   margin: 0 auto;
   padding-left: 244px;
+  padding-right: 32px;
 }
 
 .vertical-spacing-24px {
@@ -16,7 +17,7 @@ body {
 
 /* Custom Font */
 @font-face {
-  font-family: 'CustomFont';
+  font-family: 'Galaxie';
   src: url('path/to/custom-font.woff2') format('woff2'),
        url('path/to/custom-font.woff') format('woff'),
        url('path/to/custom-font.ttf') format('truetype');
@@ -37,7 +38,7 @@ nav {
 }
 
 .logo {
-  font-family: 'CustomFont', serif;
+  font-family: 'Galaxie', serif;
   font-size: 24px;
 }
 
@@ -54,11 +55,19 @@ nav {
 }
 
 h1 {
-  font-family: 'CustomFont', serif;
+  font-family: 'Galaxie', serif;
   font-size: 54px;
   line-height: 72px;
   text-align: left;
   color: #353535; /* Global font color set to #353535 */
+}
+
+h1 a {
+  font-family: 'Galaxie', serif;
+}
+
+a {
+  font-family: 'Inter', sans-serif;
 }
 
 main {
@@ -66,14 +75,25 @@ main {
 }
 
 p {
-  font-family: 'CustomFont', serif;
+  font-family: 'CustomFont', sans-serif;
   font-size: 18px;
   color: #353535; /* Global font color set to #353535 */
 }
 
 li {
   display: inline; /* Make list items display inline */
-  margin-right: 16px; /* Add some space between list items if needed */
+  margin-left: 24px; /* Add some space between list items if needed */
+}
+
+.copyright {
+  display: flex;
+  text-align: left;
+}
+
+.footer-styling {
+  align-items: flex-end;
+  display: flex;
+  justify-content: space-between;
 }
 
 /* Hyperlink Animation for Main Link */
@@ -99,7 +119,7 @@ h1 a::after {
 }
 
 h1 a:hover {
-  color: #ECECEC; /* Text color on hover set to #ECECEC */
+  color: #fff; /* Text color on hover set to #ECECEC */
 }
 
 h1 a:hover::before,
@@ -127,11 +147,11 @@ nav a::before,
 nav a::after {
   content: '';
   position: absolute;
-  left: -4px;
-  right: -4px; /* Start animation at -4px */
+  left: -6px;
+  right: -6px; /* Start animation at -4px */
   height: 24px; /* Initial height set to 2px (matches line height) */
   width: 0; /* Initially set width to 0 */
-  background-color: #FF6100; /* Hover highlight color set to #FF6100 */
+  background-color: #353535; /* Hover highlight color set to #FF6100 */
   z-index: -1;
   transition: width 0.3s ease; /* Animate width from 0 to 100% on hover */
 }
@@ -142,8 +162,8 @@ nav a:hover {
 
 nav a:hover::before,
 nav a:hover::after {
-  width: calc(100% + 8px); /* Set width to 100% + 4px on each side on hover */
-  right: -4px; /* Animate right to -4px on hover */
+  width: calc(100% + 12px); /* Set width to 100% + 4px on each side on hover */
+  right: -6px; /* Animate right to -4px on hover */
 }
 
 nav a::after {
