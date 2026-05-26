@@ -274,7 +274,7 @@ button:focus-visible {
    ========================================================= */
 
 .case-grid {
-  padding: var(--space-xl) 0 var(--space-3xl);
+  padding: var(--space-xl) 0 var(--space-xl);
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-3xl) var(--wrapper-gutter);
@@ -357,6 +357,19 @@ button:focus-visible {
   font-weight: 600;
 }
 
+.chip--short-read {
+  background: transparent;
+  color: var(--text-subdued);
+  border: 1px solid var(--surface-grey);
+  font-weight: 600;
+}
+
+@media (prefers-color-scheme: dark) {
+  .chip--short-read {
+    border-color: var(--text-subdued);
+  }
+}
+
 .case-card__title {
   font-size: var(--heading-sm-size);
   line-height: calc(var(--heading-sm-line) / var(--heading-sm-size));
@@ -373,8 +386,128 @@ button:focus-visible {
 }
 
 /* =========================================================
-   Footer
+   Shorter studies — a smaller, secondary card pattern
    ========================================================= */
+
+.shorter-studies {
+  padding: var(--space-xl) 0 var(--space-3xl);
+}
+
+.shorter-studies__heading {
+  font-size: var(--heading-md-size);
+  line-height: calc(var(--heading-md-line) / var(--heading-md-size));
+  font-weight: 700;
+  margin: 0 0 var(--space-xl);
+  letter-spacing: -0.01em;
+  color: var(--text-default);
+}
+
+.shorter-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+@media (min-width: 600px) {
+  .shorter-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+  }
+}
+
+.shorter-card {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: var(--space-lg);
+  align-items: center;
+  padding: var(--space-lg);
+  background: var(--surface-blue);
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+  transition: background-color 120ms ease;
+}
+
+@media (min-width: 600px) {
+  .shorter-card {
+    grid-template-columns: 140px 1fr;
+    padding: var(--space-xl);
+  }
+}
+
+.shorter-card:hover {
+  background: var(--surface-blue-1);
+  text-decoration: none;
+}
+
+.shorter-card:hover .shorter-card__title {
+  color: var(--link-hover);
+}
+
+.shorter-card:focus-visible {
+  outline: 3px solid var(--focus-bg);
+  outline-offset: 2px;
+}
+
+.shorter-card__logo {
+  aspect-ratio: 1 / 1;
+  background: var(--surface-standard);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.shorter-card__logo img {
+  max-width: 70%;
+  max-height: 70%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.shorter-card__chips {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-2xs);
+}
+
+.shorter-card__title {
+  font-size: var(--body-md-size);
+  line-height: 1.3;
+  font-weight: 700;
+  margin: var(--space-2xs) 0;
+  color: var(--text-default);
+}
+
+@media (min-width: 600px) {
+  .shorter-card__title {
+    font-size: var(--heading-sm-size);
+    line-height: calc(var(--heading-sm-line) / var(--heading-sm-size));
+  }
+}
+
+.shorter-card__impact {
+  font-size: var(--body-sm-size);
+  line-height: calc(var(--body-sm-line) / var(--body-sm-size));
+  color: var(--text-subdued);
+  margin: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .shorter-card {
+    background: var(--surface-grey);
+  }
+  .shorter-card:hover {
+    background: var(--surface-blue);
+  }
+  .shorter-card__logo {
+    background: var(--surface-standard);
+  }
+}
 
 .site-footer {
   background: var(--surface-blue);
