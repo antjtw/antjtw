@@ -12,20 +12,8 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body data-protected="true">
-  <a href="#main" class="skip-link">Skip to main content</a>
 
-  <header class="site-header">
-    <div class="wrapper">
-      <a href="work.html" class="brand">Ant White</a>
-      <nav class="site-nav" aria-label="Primary">
-        <ul>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="cv.html">CV</a></li>
-          <li><a href="https://www.linkedin.com/" rel="noopener">LinkedIn</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <header data-include="header"></header>
 
   <main id="main">
     <section class="hero">
@@ -39,7 +27,6 @@
         <h2 class="visually-hidden">Selected work</h2>
         <div class="case-grid">
 
-          <!-- 1. EE Add Mobile -->
           <a class="case-card" href="case-studies/ee-add-mobile.html">
             <div class="case-card__thumb">
               <img src="images/ee-add-mobile-thumb.png" alt="">
@@ -52,7 +39,6 @@
             <p class="case-card__impact">31% traffic uplift, 19% conversion uplift, +0.7% direct channel share.</p>
           </a>
 
-          <!-- 2. Simplifying data plan selection -->
           <a class="case-card" href="case-studies/ee-data-plans.html">
             <div class="case-card__thumb">
               <img src="images/ee-data-plans-thumb.png" alt="">
@@ -65,7 +51,6 @@
             <p class="case-card__impact">29% faster task completion. 8% sales uplift, with customers shifting toward higher-value plans.</p>
           </a>
 
-          <!-- 3. Westfield Health -->
           <a class="case-card" href="case-studies/westfield-health.html">
             <div class="case-card__thumb">
               <img src="images/westfield-health-thumb.png" alt="">
@@ -79,7 +64,6 @@
             <p class="case-card__impact">First-to-market self-serve platform. Built the design practice and system from zero.</p>
           </a>
 
-          <!-- 4. GOV.UK COVID -->
           <a class="case-card" href="case-studies/govuk-covid.html">
             <div class="case-card__thumb">
               <img src="images/govuk-covid-thumb.png" alt="">
@@ -92,7 +76,6 @@
             <p class="case-card__impact">Reduced average reporting times by 80% across NHS Trusts during the pandemic.</p>
           </a>
 
-          <!-- 5. Sky Broadband -->
           <a class="case-card" href="case-studies/sky-broadband.html">
             <div class="case-card__thumb">
               <img src="images/sky-broadband-thumb.png" alt="">
@@ -105,7 +88,6 @@
             <p class="case-card__impact">Modernised the Broadband &amp; Talk Hub. Contributed to Sky&rsquo;s Polaris design system.</p>
           </a>
 
-          <!-- 6. MTFBWY RPG -->
           <a class="case-card" href="case-studies/mtfbwy-rpg.html">
             <div class="case-card__thumb">
               <img src="images/mtfbwy-rpg-thumb.png" alt="">
@@ -123,39 +105,9 @@
     </section>
   </main>
 
-  <footer class="site-footer" role="contentinfo">
-    <div class="wrapper">
-      <div class="site-footer__grid">
-        <div>
-          <h2>Connect</h2>
-          <ul>
-            <li><a href="mailto:anthony@antjtw.com">Email</a></li>
-            <li><a href="https://www.linkedin.com/" rel="noopener">LinkedIn</a></li>
-          </ul>
-        </div>
-        <div>
-          <h2>MTFBWY RPG</h2>
-          <ul>
-            <li><a href="#">Rules document</a></li>
-            <li><a href="#">Resources</a></li>
-          </ul>
-        </div>
-        <div>
-          <h2>Other</h2>
-          <ul>
-            <li><a href="cv.html">Digital CV</a></li>
-            <li><a href="#">Printable CV</a></li>
-          </ul>
-        </div>
-        <div class="site-footer__note">
-          <h2>Selected experience</h2>
-          <p>NHS &middot; GOV.UK &middot; MoD &middot; AstraZeneca &middot; EE &middot; Sky &middot; Westfield Health &middot; BT</p>
-        </div>
-      </div>
-      <p class="site-footer__copy">&copy; Anthony White MMXXV</p>
-    </div>
-  </footer>
+  <footer data-include="footer"></footer>
 
+  <script src="js/includes.js"></script>
   <script src="js/auth.js"></script>
   <script src="js/main.js"></script>
 </body>

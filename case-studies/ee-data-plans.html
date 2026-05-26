@@ -10,21 +10,9 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
   <link rel="stylesheet" href="../css/styles.css">
 </head>
-<body data-protected="true" data-auth-path="../index.html">
-  <a href="#main" class="skip-link">Skip to main content</a>
+<body data-protected="true" data-auth-path="../index.html" data-base="../">
 
-  <header class="site-header">
-    <div class="wrapper">
-      <a href="../work.html" class="brand">Ant White</a>
-      <nav class="site-nav" aria-label="Primary">
-        <ul>
-          <li><a href="../contact.html">Contact</a></li>
-          <li><a href="../cv.html">CV</a></li>
-          <li><a href="https://www.linkedin.com/" rel="noopener">LinkedIn</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <header data-include="header"></header>
 
   <main id="main">
     <article class="case-page">
@@ -67,12 +55,9 @@
     </article>
   </main>
 
-  <footer class="site-footer" role="contentinfo">
-    <div class="wrapper">
-      <p class="site-footer__copy">&copy; Anthony White MMXXV &middot; <a href="../work.html">Back to work</a></p>
-    </div>
-  </footer>
+  <footer data-include="footer"></footer>
 
+  <script src="../js/includes.js"></script>
   <script src="../js/auth.js"></script>
 </body>
 </html>

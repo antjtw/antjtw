@@ -11,20 +11,8 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body data-protected="true">
-  <a href="#main" class="skip-link">Skip to main content</a>
 
-  <header class="site-header">
-    <div class="wrapper">
-      <a href="work.html" class="brand">Ant White</a>
-      <nav class="site-nav" aria-label="Primary">
-        <ul>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="cv.html">CV</a></li>
-          <li><a href="https://www.linkedin.com/" rel="noopener">LinkedIn</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <header data-include="header"></header>
 
   <main id="main">
     <section class="cv-page">
@@ -132,12 +120,9 @@
     </section>
   </main>
 
-  <footer class="site-footer" role="contentinfo">
-    <div class="wrapper">
-      <p class="site-footer__copy">&copy; Anthony White MMXXV &middot; <a href="work.html">Back to work</a></p>
-    </div>
-  </footer>
+  <footer data-include="footer"></footer>
 
+  <script src="js/includes.js"></script>
   <script src="js/auth.js"></script>
 </body>
 </html>

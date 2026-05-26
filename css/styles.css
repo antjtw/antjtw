@@ -42,8 +42,8 @@
 
   /* Typography — small breakpoint defaults */
   --type-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --heading-l-size: 32px;
-  --heading-l-line: 44px;
+  --heading-l-size: 28px;
+  --heading-l-line: 36px;
   --heading-md-size: 24px;
   --heading-md-line: 32px;
   --heading-sm-size: 20px;
@@ -67,8 +67,8 @@
     --wrapper-margin: 20px;
     --wrapper-gutter: 20px;
 
-    --heading-l-size: 44px;
-    --heading-l-line: 56px;
+    --heading-l-size: 40px;
+    --heading-l-line: 52px;
     --heading-md-size: 32px;
     --heading-md-line: 40px;
     --heading-sm-size: 22px;
@@ -87,8 +87,8 @@
     --wrapper-margin: 24px;
     --wrapper-gutter: 32px;
 
-    --heading-l-size: 56px;
-    --heading-l-line: 72px;
+    --heading-l-size: 48px;
+    --heading-l-line: 60px;
     --heading-md-size: 36px;
     --heading-md-line: 48px;
     --heading-sm-size: 24px;
@@ -229,7 +229,9 @@ button:focus-visible {
 .site-nav a {
   color: var(--text-default);
   text-decoration: none;
-  font-size: var(--body-md-size);
+  font-size: var(--body-sm-size);
+  line-height: calc(var(--body-sm-line) / var(--body-sm-size));
+  font-weight: 600;
 }
 
 .site-nav a:hover {
@@ -589,6 +591,8 @@ button:focus-visible {
 .auth-card p {
   margin: 0 0 var(--space-lg);
   color: var(--text-default);
+  font-size: var(--body-sm-size);
+  line-height: calc(var(--body-sm-line) / var(--body-sm-size));
 }
 
 .auth-form__group {
@@ -648,12 +652,12 @@ button:focus-visible {
 
 .btn {
   display: inline-block;
-  padding: var(--space-sm) var(--space-lg);
+  padding: var(--space-sm) var(--space-xl);
   font-size: var(--body-md-size);
   font-family: inherit;
   font-weight: 600;
   text-decoration: none;
-  border-radius: 4px;
+  border-radius: 999px;
   border: 2px solid transparent;
   cursor: pointer;
   line-height: 1.2;
@@ -661,27 +665,28 @@ button:focus-visible {
 }
 
 .btn--primary {
-  background: var(--text-blue-default);
-  color: var(--surface-standard);
-  border-color: var(--text-blue-default);
+  background: var(--link-hover);
+  color: #FFFFFF;
+  border-color: var(--link-hover);
 }
 
 .btn--primary:hover {
-  background: var(--link-hover);
-  border-color: var(--link-hover);
-  color: var(--surface-standard);
+  background: #0E63B0;
+  border-color: #0E63B0;
+  color: #FFFFFF;
   text-decoration: none;
 }
 
 .btn--secondary {
   background: transparent;
-  color: var(--text-default);
-  border-color: var(--text-default);
+  color: var(--link-hover);
+  border-color: var(--link-hover);
 }
 
 .btn--secondary:hover {
-  background: var(--text-default);
-  color: var(--surface-standard);
+  background: transparent;
+  color: #0E63B0;
+  border-color: #0E63B0;
   text-decoration: none;
 }
 
@@ -692,9 +697,17 @@ button:focus-visible {
     color: #FFFFFF;
   }
   .btn--primary:hover {
-    background: var(--text-default);
-    border-color: var(--text-default);
-    color: var(--surface-standard);
+    background: #4DA8F0;
+    border-color: #4DA8F0;
+    color: #FFFFFF;
+  }
+  .btn--secondary {
+    color: var(--link-hover);
+    border-color: var(--link-hover);
+  }
+  .btn--secondary:hover {
+    color: #4DA8F0;
+    border-color: #4DA8F0;
   }
 }
 
@@ -733,21 +746,4 @@ button:focus-visible {
   clip: rect(0 0 0 0) !important;
   white-space: nowrap !important;
   border: 0 !important;
-}
-
-.skip-link {
-  position: absolute;
-  top: -40px;
-  left: 0;
-  background: #0B0C0C;
-  color: #FFFFFF;
-  padding: var(--space-sm) var(--space-md);
-  text-decoration: none;
-  z-index: 100;
-}
-
-.skip-link:focus {
-  top: 0;
-  background-color: var(--focus-bg);
-  color: #0B0C0C;
 }
