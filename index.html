@@ -1,18 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-GB">
 <head>
-  <title>Anthony White</title>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="styles.css">
+  <title>Ant White</title>
+  <meta name="description" content="Portfolio of Ant White &mdash; design leader.">
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <div class="wrapper">
-    
-    <main>
-      <h1>I'm working on this, check back soon.</h1>
-      <div class="vertical-space-24px"></div>
-      <a href="mailto:anthony@antjtw.com">Or send me an email</a>
-    </main>
-  </div>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="wrapper">
+      <span class="brand">Ant White</span>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="auth-page">
+      <div class="wrapper">
+        <div class="auth-card">
+          <h1>This portfolio is password-protected.</h1>
+          <p>Some of the work behind this gate is under NDA, so I keep things tidy by handing the password out personally. If you have it, type away. If not, the second button below will sort you out.</p>
+
+          <div id="auth-error" class="auth-form__error" role="alert" aria-hidden="true"></div>
+
+          <form id="auth-form" class="auth-form" autocomplete="off" novalidate>
+            <div class="auth-form__group">
+              <label for="password">Password</label>
+              <input type="password" id="password" name="password" autocomplete="current-password" autofocus required>
+            </div>
+
+            <div class="auth-form__remember">
+              <input type="checkbox" id="remember" name="remember">
+              <label for="remember">Remember me on this device for 30 days</label>
+            </div>
+
+            <div class="auth-form__actions">
+              <button type="submit" class="btn btn--primary">View the work</button>
+              <a class="btn btn--secondary" href="mailto:anthony@antjtw.com?subject=Password%20request&body=Hi%20Ant%2C%0A%0AI%27ve%20landed%20on%20your%20portfolio%20and%20it%27s%20locked.%20Annoying%2C%20I%20know.%20Could%20I%20have%20the%20password%3F%20Here%27s%20a%20bit%20about%20me%20so%20you%20know%20I%27m%20not%20a%20bot%3A%0A%0A%5BWho%20I%20am%20and%20why%20I%27m%20snooping%5D%0A%0AThanks%2C%0A%5BYour%20name%5D">Request the password</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="wrapper">
+      <p class="site-footer__copy">&copy; Anthony White MMXXV</p>
+    </div>
+  </footer>
+
+  <script src="js/auth.js"></script>
 </body>
 </html>
