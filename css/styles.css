@@ -319,7 +319,8 @@ button:focus-visible {
   font-size: var(--heading-l-size);
   line-height: calc(var(--heading-l-line) / var(--heading-l-size));
   font-weight: 700;
-  margin: 0;
+  margin: 0 0 var(--space-sm);
+  padding: 0 0 var(--space-3xl);
   letter-spacing: -0.01em;
   max-width: 920px;
   color: var(--text-default);
