@@ -7,6 +7,17 @@
   <meta name="robots" content="noindex">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script>
+    // Inline so we set the theme before any paint to avoid flash
+    (function () {
+      try {
+        var t = localStorage.getItem('aw_theme');
+        if (t === 'dark' || t === 'light') {
+          document.documentElement.setAttribute('data-theme', t);
+        }
+      } catch (e) {}
+    })();
+  </script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
   <link rel="stylesheet" href="../css/styles.css">
 </head>
@@ -33,7 +44,7 @@
         <div class="case-page__hero-img">
           <!-- Drop hero image at ../images/nhs-apc-hero.png (16:9) -->
         </div>
-        <p class="case-page__caption"><!-- HERO CAPTION: what is shown, who collaborated, what your role was --></p>
+        <p class="case-page__caption">Service design by Tom Morgan and Santra Navas. Concept-stage service design and early testing by Aoife Power. UCD Lead and design by me.</p>
 
         <dl class="case-page__meta">
           <div>
@@ -104,6 +115,7 @@
   <footer data-include="footer"></footer>
 
   <script src="../js/includes.js"></script>
+    <script src="../js/theme.js"></script>
   <script src="../js/auth.js"></script>
 </body>
 </html>

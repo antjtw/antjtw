@@ -104,9 +104,30 @@
   }
 }
 
-/* -------- Token: Dark mode -------- */
+/* -------- Token: Dark mode --------
+   Applies when:
+   1. <html data-theme="dark"> (user explicitly chose dark), OR
+   2. No data-theme attribute set AND OS prefers dark scheme.
+   The :root[data-theme="light"] case is handled by the default :root tokens
+   (light mode is the default).
+*/
+:root[data-theme="dark"] {
+  --text-default: #DADADA;
+  --text-subdued: rgba(218, 218, 218, 0.7);
+  --text-blue-default: #DADADA;
+  --text-blue-subdued: rgba(218, 218, 218, 0.7);
+
+  --link-default: #DADADA;
+  --link-hover: #1585E8;
+
+  --surface-standard: #000000;
+  --surface-grey: #1E1E1E;
+  --surface-blue: #3E474F;
+  --surface-blue-1: #3E474F;
+}
+
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --text-default: #DADADA;
     --text-subdued: rgba(218, 218, 218, 0.7);
     --text-blue-default: #DADADA;
@@ -241,6 +262,41 @@ button:focus-visible {
   text-underline-offset: 0.2em;
 }
 
+/* Theme toggle */
+.theme-toggle {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  color: var(--text-default);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  transition: color 120ms ease, background-color 120ms ease;
+}
+
+.theme-toggle:hover {
+  color: var(--link-hover);
+}
+
+.theme-toggle:focus-visible {
+  outline: 3px solid var(--focus-bg);
+  outline-offset: 2px;
+}
+
+.theme-toggle__icon {
+  display: none;
+}
+
+/* Show the moon when we're in light mode (clicking it goes dark) */
+:root:not([data-theme="dark"]) .theme-toggle__icon--moon { display: block; }
+/* Show the sun when we're in dark mode (clicking it goes light) */
+:root[data-theme="dark"] .theme-toggle__icon--sun { display: block; }
+
 @media (max-width: 480px) {
   .site-header .wrapper {
     gap: var(--space-md);
@@ -364,8 +420,12 @@ button:focus-visible {
   font-weight: 600;
 }
 
+:root[data-theme="dark"] .chip--short-read {
+  border-color: var(--text-subdued);
+}
+
 @media (prefers-color-scheme: dark) {
-  .chip--short-read {
+  :root:not([data-theme="light"]) .chip--short-read {
     border-color: var(--text-subdued);
   }
 }
@@ -663,8 +723,12 @@ button:focus-visible {
   margin: var(--space-2xl) 0 var(--space-xs);
 }
 
+:root[data-theme="dark"] .case-page__lead-in {
+  color: var(--link-hover);
+}
+
 @media (prefers-color-scheme: dark) {
-  .case-page__lead-in {
+  :root:not([data-theme="light"]) .case-page__lead-in {
     color: var(--link-hover);
   }
 }
@@ -686,8 +750,12 @@ button:focus-visible {
   color: var(--text-blue-default);
 }
 
+:root[data-theme="dark"] .case-page__pull p {
+  color: var(--text-default);
+}
+
 @media (prefers-color-scheme: dark) {
-  .case-page__pull p {
+  :root:not([data-theme="light"]) .case-page__pull p {
     color: var(--text-default);
   }
 }
@@ -922,22 +990,41 @@ button:focus-visible {
   text-decoration: none;
 }
 
+:root[data-theme="dark"] .btn--primary {
+  background: var(--link-hover);
+  border-color: var(--link-hover);
+  color: #FFFFFF;
+}
+:root[data-theme="dark"] .btn--primary:hover {
+  background: #4DA8F0;
+  border-color: #4DA8F0;
+  color: #FFFFFF;
+}
+:root[data-theme="dark"] .btn--secondary {
+  color: var(--link-hover);
+  border-color: var(--link-hover);
+}
+:root[data-theme="dark"] .btn--secondary:hover {
+  color: #4DA8F0;
+  border-color: #4DA8F0;
+}
+
 @media (prefers-color-scheme: dark) {
-  .btn--primary {
+  :root:not([data-theme="light"]) .btn--primary {
     background: var(--link-hover);
     border-color: var(--link-hover);
     color: #FFFFFF;
   }
-  .btn--primary:hover {
+  :root:not([data-theme="light"]) .btn--primary:hover {
     background: #4DA8F0;
     border-color: #4DA8F0;
     color: #FFFFFF;
   }
-  .btn--secondary {
+  :root:not([data-theme="light"]) .btn--secondary {
     color: var(--link-hover);
     border-color: var(--link-hover);
   }
-  .btn--secondary:hover {
+  :root:not([data-theme="light"]) .btn--secondary:hover {
     color: #4DA8F0;
     border-color: #4DA8F0;
   }
@@ -957,8 +1044,13 @@ button:focus-visible {
   display: block;
 }
 
+:root[data-theme="dark"] .auth-form__error {
+  background: #4A1F1F;
+  color: #FFBDBD;
+}
+
 @media (prefers-color-scheme: dark) {
-  .auth-form__error {
+  :root:not([data-theme="light"]) .auth-form__error {
     background: #4A1F1F;
     color: #FFBDBD;
   }

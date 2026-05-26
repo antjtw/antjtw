@@ -8,6 +8,17 @@
   <meta name="robots" content="noindex">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script>
+    // Inline so we set the theme before any paint to avoid flash
+    (function () {
+      try {
+        var t = localStorage.getItem('aw_theme');
+        if (t === 'dark' || t === 'light') {
+          document.documentElement.setAttribute('data-theme', t);
+        }
+      } catch (e) {}
+    })();
+  </script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
   <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -109,6 +120,20 @@
         <h2 class="shorter-studies__heading">Shorter studies</h2>
         <div class="shorter-grid">
 
+          <a class="shorter-card" href="case-studies/make-shift-hackathon.html">
+            <div class="shorter-card__thumb">
+              <img src="images/make-shift-hackathon-thumb.png" alt="">
+            </div>
+            <div>
+              <div class="shorter-card__chips">
+                <span class="chip chip--primary">Practice</span>
+                <span class="chip">Accenture</span>
+              </div>
+              <h3 class="shorter-card__title">Make/Shift: a national hackathon for skill adoption</h3>
+              <p class="shorter-card__impact">Designed an internal Accenture event to drive AI upskilling and envelope-pushing across the practice.</p>
+            </div>
+          </a>
+
           <a class="shorter-card" href="case-studies/sky-corporate-pitch.html">
             <div class="shorter-card__thumb">
               <img src="images/sky-corporate-pitch-thumb.png" alt="">
@@ -145,6 +170,7 @@
   <footer data-include="footer"></footer>
 
   <script src="js/includes.js"></script>
+    <script src="js/theme.js"></script>
   <script src="js/auth.js"></script>
   <script src="js/main.js"></script>
 </body>
