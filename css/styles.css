@@ -588,7 +588,8 @@ button:focus-visible {
 }
 
 .site-footer h2 {
-  font-size: var(--body-sm-size);
+  font-size: var(--body-xs-size);
+  line-height: calc(var(--body-xs-line) / var(--body-xs-size));
   font-weight: 700;
   margin: 0 0 var(--space-sm);
   color: var(--text-default);
@@ -603,6 +604,12 @@ button:focus-visible {
 
 .site-footer li {
   margin-bottom: var(--space-xs);
+}
+
+.site-footer li a {
+  font-size: var(--body-xs-size);
+  line-height: calc(var(--body-xs-line) / var(--body-xs-size));
+  font-weight: 700;
 }
 
 .site-footer__note {
