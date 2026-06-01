@@ -588,8 +588,7 @@ button:focus-visible {
 }
 
 .site-footer h2 {
-  font-size: var(--body-xs-size);
-  line-height: calc(var(--body-xs-line) / var(--body-xs-size));
+  font-size: var(--body-sm-size);
   font-weight: 700;
   margin: 0 0 var(--space-sm);
   color: var(--text-default);
@@ -604,12 +603,6 @@ button:focus-visible {
 
 .site-footer li {
   margin-bottom: var(--space-xs);
-}
-
-.site-footer li a {
-  font-size: var(--body-xs-size);
-  line-height: calc(var(--body-xs-line) / var(--body-xs-size));
-  font-weight: 700;
 }
 
 .site-footer__note {
@@ -725,20 +718,8 @@ button:focus-visible {
   font-size: var(--body-sm-size);
   line-height: calc(var(--body-sm-line) / var(--body-sm-size));
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--text-blue-default);
+  color: var(--text-default);
   margin: var(--space-2xl) 0 var(--space-xs);
-}
-
-:root[data-theme="dark"] .case-page__lead-in {
-  color: var(--link-hover);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .case-page__lead-in {
-    color: var(--link-hover);
-  }
 }
 
 /* Pull quote / highlight box for tension moments */
