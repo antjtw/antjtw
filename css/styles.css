@@ -588,8 +588,9 @@ button:focus-visible {
 }
 
 .site-footer h2 {
-  font-size: var(--body-sm-size);
-  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
   margin: 0 0 var(--space-sm);
   color: var(--text-default);
   text-transform: none;
@@ -603,6 +604,12 @@ button:focus-visible {
 
 .site-footer li {
   margin-bottom: var(--space-xs);
+}
+
+.site-footer li a {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
 }
 
 .site-footer__note {
