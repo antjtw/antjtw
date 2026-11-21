@@ -6,13 +6,13 @@
 
 window.AW = window.AW || {};
 
-AW.roles = [
-  'Design leader',
-  'AI leader',
-  'Force multiplier',
-  'Mentor',
-  'Systems thinker',
-  'Game designer'
+/* Hero: "I lead design through ___." Each word drives a diagram panel. */
+AW.hero = [
+  { word: 'AI',             tab: 'Agents',     scene: 'agents',  cap: 'Agents that turn user needs into prototype specs, with a human signing every one off.' },
+  { word: 'multiplication', tab: 'Teams',      scene: 'teams',   cap: 'One lead, many better designers. Seven reports, two mentees, and counting.' },
+  { word: 'transformation', tab: 'Practice',   scene: 'practice',cap: 'Design practices and systems built from nothing, in places that needed them.' },
+  { word: 'systems',        tab: 'Components', scene: 'systems', cap: 'Tokens to components to screens: how the pieces fit, drawn at every level.' },
+  { word: 'play',           tab: 'Rules',      scene: 'rules',   cap: 'Rules, then the interfaces to the rules, then how players learn them.' }
 ];
 
 /* ---------- Quests ----------
@@ -24,7 +24,7 @@ AW.roles = [
 ------------------------------------------------------------ */
 AW.quests = [
   {
-    id: 'nhs-apc', type: 'main', status: 'active', featured: true,
+    id: 'nhs-apc', short: 'NHS Advice & Guidance', sector: 'health', type: 'main', status: 'active', featured: true,
     title: 'Replacing e-RS: helping the NHS see secondary care patients sooner',
     org: 'NHS England', year: '2026', role: 'UCD Lead',
     tags: ['UX strategy', 'UCD practice', 'AI agents'],
@@ -32,7 +32,7 @@ AW.quests = [
     href: '../case-studies/nhs-apc.html', hue: 210
   },
   {
-    id: 'westfield-health', type: 'main', status: 'complete', featured: true,
+    id: 'westfield-health', short: 'Westfield Health', sector: 'insurance', type: 'main', status: 'complete', featured: true,
     title: 'A market-first broker quotation tool, built without talking to users',
     org: 'Westfield Health', year: '2023–25', role: 'Lead UX Designer',
     tags: ['Product design', 'Design system', 'Practice from zero'],
@@ -40,7 +40,7 @@ AW.quests = [
     href: '../case-studies/westfield-health.html', hue: 200
   },
   {
-    id: 'ee-add-mobile', type: 'main', status: 'complete', featured: true,
+    id: 'ee-add-mobile', short: 'EE Add Mobile', sector: 'telecoms', type: 'main', status: 'complete', featured: true,
     title: 'Increasing additional product sales for EE’s digital store',
     org: 'EE', year: '2019–22', role: 'Lead Product Designer',
     tags: ['Product design', 'Experimentation'],
@@ -48,7 +48,7 @@ AW.quests = [
     href: '../case-studies/ee-add-mobile.html', hue: 225
   },
   {
-    id: 'govuk-covid', type: 'main', status: 'complete', featured: false,
+    id: 'govuk-covid', short: 'COVID-19 reporting', sector: 'government', type: 'main', status: 'complete', featured: false,
     title: 'Letting Trusts and hospitals report COVID-19 test results',
     org: 'GOV.UK · UKHSA', year: '2022', role: 'Senior Interaction Designer',
     tags: ['Interaction design', 'GDS'],
@@ -56,7 +56,7 @@ AW.quests = [
     href: '../case-studies/govuk-covid.html', hue: 195
   },
   {
-    id: 'ee-data-plans', type: 'main', status: 'complete', featured: false,
+    id: 'ee-data-plans', short: 'EE data plans', sector: 'telecoms', type: 'main', status: 'complete', featured: false,
     title: 'Simplifying data plan selection',
     org: 'EE', year: '2021', role: 'Senior Product Designer',
     tags: ['Information design', 'Commercial UX'],
@@ -64,7 +64,7 @@ AW.quests = [
     href: '../case-studies/ee-data-plans.html', hue: 215
   },
   {
-    id: 'sky-broadband', type: 'main', status: 'complete', featured: false,
+    id: 'sky-broadband', short: 'Sky Broadband Hub', sector: 'media & broadband', type: 'main', status: 'complete', featured: false,
     title: 'Helping Sky Broadband customers check their service',
     org: 'Sky', year: '2018–19', role: 'UI Designer',
     tags: ['UI design', 'Polaris design system'],
@@ -72,15 +72,15 @@ AW.quests = [
     href: '../case-studies/sky-broadband.html', hue: 230
   },
   {
-    id: 'make-shift', type: 'main', status: 'drafting', featured: false,
-    title: 'Make/Shift: a national AI hackathon',
+    id: 'make-shift', short: 'Make/Shift', sector: 'professional services', type: 'main', status: 'drafting', featured: false,
+    title: 'A national AI hackathon for designers',
     org: 'Accenture', year: '2025', role: 'Organiser & designer',
     tags: ['Practice', 'AI upskilling'],
     loot: 'An internal event for AI upskilling and envelope-pushing.',
     href: '../case-studies/make-shift-hackathon.html', hue: 205
   },
   {
-    id: 'sky-pitch', type: 'main', status: 'complete', featured: false,
+    id: 'sky-pitch', short: 'Sky corporate pitch', sector: 'media & broadband', type: 'main', status: 'complete', featured: false,
     title: 'Sky corporate pitch',
     org: 'Sky', year: '2019', role: 'UI Designer',
     tags: ['Visual design'],
@@ -90,15 +90,15 @@ AW.quests = [
 
   /* ---- Side quests ---- */
   {
-    id: 'mtfbwy', type: 'side', status: 'active', featured: true,
-    title: 'MTFBWY: designing a tabletop RPG from scratch',
+    id: 'mtfbwy', short: 'MTFBWY RPG', sector: 'tabletop games', type: 'side', status: 'active', featured: true,
+    title: 'Designing a Star Wars-inspired tabletop RPG from scratch',
     org: 'Personal', year: 'Ongoing', role: 'Game & UX designer',
     tags: ['Game design', 'Systems', 'Virtual tabletop'],
     loot: 'Rules, character sheets, GM tools and a VTT. Closed beta v1.1.1.',
     href: '../case-studies/mtfbwy-rpg.html', hue: 250
   },
   {
-    id: 'ynepf', type: 'side', status: 'active', featured: true,
+    id: 'ynepf', short: 'YNE Powerlifting', sector: 'sport', type: 'side', status: 'active', featured: true,
     title: 'Transforming a regional powerlifting federation',
     org: 'Yorkshire & North East Powerlifting', year: 'Ongoing', role: 'Co-Chair',
     tags: ['Transformation', 'Strategy', 'Digital'],
@@ -106,8 +106,8 @@ AW.quests = [
     href: '#', hue: 190
   },
   {
-    id: 'rate-race', type: 'side', status: 'complete', featured: true,
-    title: 'Rate Race: a silly IMDb rating game',
+    id: 'rate-race', short: 'Rate Race', sector: 'web toys', type: 'side', status: 'complete', featured: true,
+    title: 'A silly IMDb rating game for losing to your friends',
     org: 'Personal', year: '2025', role: 'Maker',
     tags: ['Vibe-coded', 'Game'],
     loot: 'Guess the rating. Lose to your friends. Play it now.',

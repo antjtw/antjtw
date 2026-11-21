@@ -5,10 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Inventory · Ant White</title>
   <meta name="robots" content="noindex">
-  <meta name="theme-color" content="#03050b">
+  <meta name="theme-color" content="#05070D">
+  <link rel="preload" href="fonts/Copernicus-Extrabold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/Copernicus-Book.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&family=Space+Grotesk:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap">
   <link rel="stylesheet" href="css/site.css">
 </head>
 <body data-page="inventory">
@@ -16,7 +18,7 @@
   <div data-nav></div>
 
   <main id="main">
-    <header class="page-head">
+    <header class="band--dark page-head">
       <div class="wrap">
         <span class="eyebrow reveal">Writing · Speaking · Teaching</span>
         <h1 class="page-head__title reveal" style="--i:1"><span class="grad-text">Inventory</span></h1>
@@ -24,26 +26,23 @@
       </div>
     </header>
 
-    <section class="section" style="padding-top:0">
+    <section class="band--light section">
       <div class="wrap">
         <div class="inv-grid" data-inventory></div>
       </div>
     </section>
-
-    <section class="section">
-      <div class="wrap">
-        <div class="cta glow-card reveal">
-          <div class="cta__beam" aria-hidden="true"></div>
-          <span class="eyebrow">Unlock a slot</span>
-          <h2 class="cta__title">Need a speaker?</h2>
-          <p>AI in delivery, building design practices, designing without users. Internal or external, in person or remote.</p>
-          <a class="btn" href="character.html#contact">Book a talk <span class="btn__arrow" aria-hidden="true">→</span></a>
-        </div>
-      </div>
-    </section>
   </main>
 
-  <div data-footer></div>
+  <section class="band--dark band--quiet">
+    <div class="wrap cta">
+      <span class="eyebrow">Unlock a slot</span>
+      <h2 class="cta__title">Need a speaker?</h2>
+      <p>AI in delivery, building design practices, designing without users. Internal or external, in person or remote.</p>
+      <a class="btn" href="character.html#contact">Book a talk <span class="btn__arrow" aria-hidden="true">→</span></a>
+    </div>
+    <div data-footer></div>
+  </section>
+
   <script src="js/data.js"></script>
   <script src="js/site.js"></script>
 </body>
