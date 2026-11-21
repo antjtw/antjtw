@@ -1,48 +1,53 @@
 <!DOCTYPE html>
-<html lang="en-GB" class="no-js">
+<html lang="en-GB">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Inventory · Ant White</title>
+  <meta name="description" content="Writing, speaking and teaching.">
   <meta name="robots" content="noindex">
-  <meta name="theme-color" content="#05070D">
-  <link rel="preload" href="fonts/Copernicus-Extrabold.woff2" as="font" type="font/woff2" crossorigin>
+  <meta name="theme-color" content="#04060D">
+  <link rel="preload" href="fonts/Copernicus-Bold.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/Copernicus-Book.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/Copernicus-BookItalic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@500;600&display=swap">
   <link rel="stylesheet" href="css/site.css">
 </head>
 <body data-page="inventory">
-  <a href="#main" class="skip-link">Skip to content</a>
+  <a class="skip" href="#main">Skip to content</a>
   <div data-nav></div>
 
   <main id="main">
-    <header class="band--dark page-head">
+    <header class="page-hero">
       <div class="wrap">
-        <span class="eyebrow reveal">Writing · Speaking · Teaching</span>
-        <h1 class="page-head__title reveal" style="--i:1"><span class="grad-text">Inventory</span></h1>
-        <p class="page-head__lede reveal" style="--i:2">Everything I’ve made to share: essays, talks, mentoring, and the courses I’m forging. Locked slots are on their way.</p>
+        <div class="banner">
+          <span class="banner__label caps">Writing · Speaking · Teaching</span>
+          <h1 class="banner__title"><em>Inventory</em></h1>
+          <p class="banner__kicker">Essays, talks, mentoring, and the courses I’m forging. Locked slots are on their way.</p>
+        </div>
+        <div class="ornament" aria-hidden="true" style="margin-top:28px"><i></i><i></i></div>
       </div>
     </header>
-
-    <section class="band--light section">
-      <div class="wrap">
-        <div class="inv-grid" data-inventory></div>
-      </div>
-    </section>
+    <section class="section" style="padding-top:72px"><div class="wrap"><div class="inv" data-inventory></div></div></section>
   </main>
 
-  <section class="band--dark band--quiet">
-    <div class="wrap cta">
-      <span class="eyebrow">Unlock a slot</span>
-      <h2 class="cta__title">Need a speaker?</h2>
-      <p>AI in delivery, building design practices, designing without users. Internal or external, in person or remote.</p>
-      <a class="btn" href="character.html#contact">Book a talk <span class="btn__arrow" aria-hidden="true">→</span></a>
+  <section class="finale">
+    <div class="wrap">
+      <div class="banner">
+        <span class="banner__label caps">Unlock a slot</span>
+        <h2 class="banner__title">Need a <em>speaker?</em></h2>
+        <p class="banner__kicker">AI in delivery, building design practices, designing without users. In person or remote.</p>
+      </div>
+      <a class="btn btn--primary" href="character.html#raven">Book a talk</a>
     </div>
-    <div data-footer></div>
   </section>
+  <div data-footer></div>
 
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/ScrollTrigger.min.js"></script>
+  <script src="vendor/lenis.min.js"></script>
   <script src="js/data.js"></script>
   <script src="js/site.js"></script>
 </body>
