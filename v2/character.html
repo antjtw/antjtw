@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en-GB" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Character · Ant White</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#03050b">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&family=Space+Grotesk:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body data-page="character">
+  <a href="#main" class="skip-link">Skip to content</a>
+  <div data-nav></div>
+
+  <main id="main">
+    <header class="page-head">
+      <div class="wrap">
+        <span class="eyebrow reveal">About · CV · Contact</span>
+        <h1 class="page-head__title reveal" style="--i:1">Character <span class="grad-text">sheet</span></h1>
+        <p class="page-head__lede reveal" style="--i:2">Design leader from Yorkshire. I make design teams better, build the practice around them, and use AI where it earns its keep. Mentor, powerlifter, game designer, unreasonably into Star Wars.</p>
+      </div>
+    </header>
+
+    <!-- ============ Summary + stats ============ -->
+    <section class="section" style="padding-top:0">
+      <div class="wrap char">
+        <div class="char__card glow-card reveal">
+          <div class="char__name">
+            <span class="char__avatar" aria-hidden="true">AW</span>
+            <div><span class="char__class">Class · Design leader</span><h2>Ant White</h2></div>
+          </div>
+          <div class="xp" data-xp></div>
+          <ul class="stats" data-stats aria-label="Attributes"></ul>
+        </div>
+        <div class="reveal" style="--i:1">
+          <span class="eyebrow">Backstory</span>
+          <p style="font-size:19px;color:var(--ink)">Twelve years in, I’ve gone from junior creative to leading user-centred design for NHS England. Somewhere along the way I worked out that the job isn’t making the thing, it’s making the team that makes the thing.</p>
+          <p style="color:var(--ink-dim)">I’ve built design practices and systems from nothing, run research when we weren’t allowed to talk to users, and shipped experiments that moved commercial numbers. Today I’m pointing that at AI: agentic tooling that takes the grind off designers so they can think harder.</p>
+          <p style="color:var(--ink-dim)">Outside work I co-chair the Yorkshire &amp; North East Powerlifting Federation and design MTFBWY, a tabletop RPG with weekly playtests and a growing table.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:28px">
+            <a class="btn" href="#contact">Send a raven <span class="btn__arrow" aria-hidden="true">→</span></a>
+            <a class="btn btn--ghost" href="https://www.dropbox.com/scl/fo/w5xttt4el73fbboominl1/ABk4T1YDUi1UFG9Na6wEmdE?rlkey=yfwq3czfpr02k86s7jlfpru8g&st=uv745q1f&dl=0" target="_blank" rel="noopener noreferrer">Printable CV ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CV ============ -->
+    <section class="section" id="cv" aria-labelledby="cv-title">
+      <div class="wrap">
+        <div class="section__head" style="margin-bottom:0">
+          <div>
+            <span class="eyebrow reveal">Quest history</span>
+            <h2 class="section__title reveal" id="cv-title" style="--i:1">CV</h2>
+          </div>
+          <div class="tabs reveal" data-cv-filter role="group" aria-label="Filter roles by skill" style="--i:2">
+            <button type="button" data-filter="all" aria-pressed="true">All</button>
+            <button type="button" data-filter="Leadership" aria-pressed="false">Leadership</button>
+            <button type="button" data-filter="AI" aria-pressed="false">AI</button>
+            <button type="button" data-filter="Product" aria-pressed="false">Product</button>
+            <button type="button" data-filter="Systems" aria-pressed="false">Systems</button>
+            <button type="button" data-filter="Craft" aria-pressed="false">Craft</button>
+          </div>
+        </div>
+        <ol class="timeline" data-cv></ol>
+
+        <div class="pillars" style="margin-top:56px">
+          <div class="glow-card reveal" style="padding:28px"><span class="eyebrow">Education</span><p style="margin:14px 0 4px;font:600 18px var(--display)">Leeds Arts University</p><p style="margin:0;color:var(--ink-dim)">BA (Hons) Graphic Design, 2:1</p></div>
+          <div class="glow-card reveal" style="padding:28px;--i:1"><span class="eyebrow">Certification</span><p style="margin:14px 0 4px;font:600 18px var(--display)">Nielsen Norman Group</p><p style="margin:0;color:var(--ink-dim)">UX Master Certification</p></div>
+          <div class="glow-card reveal" style="padding:28px;--i:2"><span class="eyebrow">Guild</span><p style="margin:14px 0 4px;font:600 18px var(--display)">YNE Powerlifting Federation</p><p style="margin:0;color:var(--ink-dim)">Co-Chair, strategy &amp; digital</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Contact ============ -->
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="wrap char">
+        <div class="reveal">
+          <span class="eyebrow">Contact</span>
+          <h2 class="section__title" id="contact-title">Start a quest.</h2>
+          <p style="color:var(--ink-dim);max-width:440px">Leadership roles, talks, mentoring, collaborations, or a debate about the prequels. I read everything.</p>
+          <p><a href="mailto:anthony@antjtw.com">anthony@antjtw.com</a><br><a href="https://www.linkedin.com/in/ant-white/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+        </div>
+        <form class="form char__card glow-card reveal" id="contact-form" style="--i:1">
+          <fieldset class="field" style="border:0;padding:0;margin:0">
+            <legend style="font:500 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:8px">Quest type</legend>
+            <div class="quest-types">
+              <input type="radio" name="kind" id="k1" value="Role" checked><label for="k1">Role</label>
+              <input type="radio" name="kind" id="k2" value="Talk"><label for="k2">Talk</label>
+              <input type="radio" name="kind" id="k3" value="Mentoring"><label for="k3">Mentoring</label>
+              <input type="radio" name="kind" id="k4" value="Collab"><label for="k4">Collab</label>
+              <input type="radio" name="kind" id="k5" value="Star Wars"><label for="k5">Star Wars</label>
+            </div>
+          </fieldset>
+          <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required></div>
+          <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email"></div>
+          <div class="field"><label for="f-msg">Message</label><textarea id="f-msg" name="message" required></textarea></div>
+          <button class="btn" type="submit" style="justify-self:start">Send <span class="btn__arrow" aria-hidden="true">→</span></button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <div data-footer></div>
+  <script src="js/data.js"></script>
+  <script src="js/site.js"></script>
+</body>
+</html>

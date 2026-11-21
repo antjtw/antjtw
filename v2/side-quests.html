@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-GB" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Side quests · Ant White</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#03050b">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&family=Space+Grotesk:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body data-page="side">
+  <a href="#main" class="skip-link">Skip to content</a>
+  <div data-nav></div>
+
+  <main id="main">
+    <header class="page-head">
+      <div class="wrap">
+        <span class="eyebrow reveal">Quest log · Outside work</span>
+        <h1 class="page-head__title reveal" style="--i:1">Side <span class="grad-text">quests</span></h1>
+        <p class="page-head__lede reveal" style="--i:2">The things I build because I want to: a tabletop RPG, a sports federation’s transformation, small games and experiments. Same rigour, more dice.</p>
+      </div>
+    </header>
+
+    <section class="section" style="padding-top:0">
+      <div class="wrap">
+        <div class="section__head" style="margin-bottom:28px">
+          <div class="tabs" data-filter-for="side-list" role="group" aria-label="Filter by status">
+            <button type="button" data-filter="all" aria-pressed="true">All</button>
+            <button type="button" data-filter="active" aria-pressed="false">In progress</button>
+            <button type="button" data-filter="complete" aria-pressed="false">Complete</button>
+          </div>
+        </div>
+        <div class="quest-grid" id="side-list" data-quests="side"></div>
+      </div>
+    </section>
+  </main>
+
+  <div data-footer></div>
+  <script src="js/data.js"></script>
+  <script src="js/site.js"></script>
+</body>
+</html>
