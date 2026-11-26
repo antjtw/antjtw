@@ -490,3 +490,8 @@ html.is-locked .gate { display: grid; position: fixed; inset: 0; z-index: 2000; 
 .qnext__title { font: 700 var(--t-h3)/1.15 var(--serif); max-width: 30ch; }
 .qnext__go { position: absolute; right: 28px; top: 50%; translate: 0 -50%; width: 48px; height: 48px; display: grid; place-items: center; background: var(--blue); color: #fff; font-size: 20px; box-shadow: 0 0 24px rgba(21, 133, 232, .55); transition: transform .4s var(--ease); }
 .qnext:hover .qnext__go { transform: translateX(4px); }
+
+/* Essays */
+.qhead__lede { max-width: 640px; margin-top: -4px; font-size: var(--t-lede); line-height: 1.55; color: var(--d-dim); }
+.essay-update { padding: 18px 22px; margin-bottom: 36px !important; background: var(--l-card); border-left: 3px solid var(--blue); font-size: 17px !important; }
+.essay-note { margin-top: 48px !important; padding-top: 20px; border-top: 1px solid var(--l-line); font: italic 400 16px/1.55 var(--serif) !important; color: var(--l-dim); }

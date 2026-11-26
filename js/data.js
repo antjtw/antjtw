@@ -124,7 +124,8 @@ AW.practice = [
 
 /* ---------- Writing & speaking ---------- */
 AW.writing = [
-  { kind: 'Writing',  title: 'On AI: a sceptic’s working position', meta: 'Essay', year: '2026', href: 'ai-policy.html' },
+  { kind: 'Writing',  title: 'On AI, revisited', meta: 'Essay', year: 'Nov 2026', href: 'writing/on-ai-revisited.html' },
+  { kind: 'Writing',  title: 'On AI: a sceptic’s working position', meta: 'Essay', year: 'Early 2026', href: 'ai-policy.html' },
   { kind: 'Speaking', title: 'Agentic prototyping in the NHS', meta: 'Internal talk', year: '2026' },
   { kind: 'Teaching', title: 'Leading and mentoring designers', meta: 'People Lead for two, seven reports, three mentees', year: 'Ongoing' },
   { kind: 'Writing',  title: 'Designing without users', meta: 'Coming soon', year: '', soon: true },

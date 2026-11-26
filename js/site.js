@@ -28,8 +28,8 @@
      Password gate
      A soft gate, not real security: the site is static, so a
      determined visitor can get past it. It keeps casual visitors
-     out of NDA work. Shares its stored unlock ('aw_auth') with the
-     older case study pages, so unlocking once opens both.
+     out of NDA work. The unlock is stored as 'aw_auth' (session, or
+     30 days with "remember me") and covers every page.
      To change the password, put the SHA-256 of the new one below:
        printf '%s' 'new-password' | sha256sum
   --------------------------------------------------------- */

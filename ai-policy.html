@@ -2,75 +2,89 @@
 <html lang="en-GB">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>On AI &mdash; Ant White</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>On AI: a sceptic’s working position · Ant White</title>
+  <meta name="description" content="Where I stood on AI earlier in 2026: a sceptic, not a refusenik.">
   <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#05070D">
   <script>
+    /* Lock before first paint unless already unlocked (see the gate in js/site.js) */
     (function () {
+      var ok = false;
       try {
-        var t = localStorage.getItem('aw_theme');
-        if (t === 'dark' || t === 'light') {
-          document.documentElement.setAttribute('data-theme', t);
-        }
+        ok = sessionStorage.getItem('aw_auth') === 'unlocked';
+        if (!ok) { var r = JSON.parse(localStorage.getItem('aw_auth') || 'null'); ok = !!(r && r.value === 'unlocked' && r.expires > Date.now()); }
       } catch (e) {}
+      if (!ok) document.documentElement.classList.add('is-locked');
     })();
   </script>
+  <link rel="preload" href="fonts/Copernicus-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/Copernicus-Book.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap">
+  <link rel="stylesheet" href="css/site.css">
 </head>
-<body data-protected="true">
-
-  <header data-include="header"></header>
+<body data-page="writing" data-base="">
+  <a class="skip" href="#main">Skip to content</a>
+  <div data-nav></div>
 
   <main id="main">
-    <section class="case-page">
-      <div class="wrapper">
+    <header class="band--dark qhead">
+      <div class="wrap">
+        <a class="qhead__back" href="writing.html">← Writing &amp; speaking</a>
+        <span class="eyebrow">Writing · Essay · Earlier in 2026</span>
+        <h1 class="qhead__title">On AI: a sceptic’s working position</h1>
+        <p class="qhead__lede">Where I stood on AI earlier in 2026: a sceptic, not a refusenik.</p>
+      </div>
+    </header>
 
-        <div class="case-page__chips">
-          <span class="chip chip--primary">On AI</span>
+    <article class="band--light qbody">
+      <div class="wrap qbody__wrap">
+        <div class="qprose">
+<p class="essay-update" data-reveal><strong>My thinking has moved on.</strong> Read <a href="writing/on-ai-revisited.html">On AI, revisited</a> (November 2026) for where I am now.</p>
+<p>You may be wondering whether this site was made with AI, or how I use it in my work. So here’s my honest position, because I think anyone hiring a designer in 2026 deserves one.</p>
+<p>I’m a sceptic. Not a refusenik (I use AI daily and I’ll come to that) but a sceptic. It’s a remarkable tool that has not yet justified its cost. And I think we’re collectively under-counting the cost.</p>
+<h2 data-reveal>Where I’m wary</h2>
+<p>The environmental bill is real and largely hidden from the people who benefit. The water and energy that data centres consume to answer a casual prompt are not abstractions; they’re a trade we’re making mostly without consent.</p>
+<p>The talent bill worries me more, because it’s closer to home. AI is hollowing out the junior end of design: the work that used to teach people their craft is increasingly automated, which creates a vacuum where the next generation of senior designers was supposed to grow. You can’t skip the apprenticeship and arrive at mastery. The same pressure squeezes artists and freelancers, whose work trains the models that then compete with them.</p>
+<p>And there’s the cost to the craft itself. Learning a skill is hours of practice, failure, and small lessons that compound into the moment something finally works and you can see your own progress. That struggle is not an inefficiency to be optimised away; it’s where the understanding lives. When a junior designer ships output they can’t evaluate, because the model made it, not them, they haven’t saved time, they’ve skipped the part that would have made them good. Instant results you don’t understand aren’t progress.</p>
+<p>I worry too about what happens beyond work: an internet filling with generated slop, and people quietly substituting a language model for a therapist, a coach, a friend. The convenience is real. So is the erosion.</p>
+<h2 data-reveal>Where I find it genuinely useful</h2>
+<p>For all that, I’m not precious. Used as an automation tool rather than a replacement for thinking, AI earns its place.</p>
+<p>I reach for it to take the time-consuming and monotonous off my plate, to stand up rough proofs of concept fast, and to consolidate research findings into something I can work with. I build agentic systems to enhance delivery: for example, an NHS GOV.UK Prototyping Tool agent that produces spec pages in response to user needs. I use it as a research partner, because it’s genuinely better and faster than I am at scouring the internet for articles, evidence, and leads. And I use it to learn. It’s good at spotting the gaps in what I know and pointing me at them.</p>
+<p>One line I hold firmly: I let it proofread, spot errors, and recommend changes with a rationale. I don’t let it write or generate in my voice. The judgement stays mine.</p>
+<h2 data-reveal>In short</h2>
+<p>AI is a powerful tool, and like any powerful tool it deserves scrutiny rather than reverence. I use it where it removes friction and amplifies my work, and I refuse it where it would replace the thinking, the craft, or the people. That line is where I’ve drawn it, and I’ll keep redrawing it as the trade-offs become clearer.</p>
         </div>
+      </div>
+    </article>
 
-        <h1>How I think about AI</h1>
-
-        <div class="case-page__body">
-
-          <p>You may be wondering whether this site was made with AI, or how I use it in my work. So here&rsquo;s my honest position, because I think anyone hiring a designer in 2026 deserves one.</p>
-
-          <p>I&rsquo;m a sceptic. Not a refusenik (I use AI daily and I&rsquo;ll come to that) but a sceptic. It&rsquo;s a remarkable tool that has not yet justified its cost. And I think we&rsquo;re collectively under-counting the cost.</p>
-
-          <p class="case-page__lead-in">Where I&rsquo;m wary</p>
-
-          <p>The environmental bill is real and largely hidden from the people who benefit. The water and energy that data centres consume to answer a casual prompt are not abstractions; they&rsquo;re a trade we&rsquo;re making mostly without consent.</p>
-
-          <p>The talent bill worries me more, because it&rsquo;s closer to home. AI is hollowing out the junior end of design: the work that used to teach people their craft is increasingly automated, which creates a vacuum where the next generation of senior designers was supposed to grow. You can&rsquo;t skip the apprenticeship and arrive at mastery. The same pressure squeezes artists and freelancers, whose work trains the models that then compete with them.</p>
-
-          <p>And there&rsquo;s the cost to the craft itself. Learning a skill is hours of practice, failure, and small lessons that compound into the moment something finally works and you can see your own progress. That struggle is not an inefficiency to be optimised away; it&rsquo;s where the understanding lives. When a junior designer ships output they can&rsquo;t evaluate, because the model made it, not them, they haven&rsquo;t saved time, they&rsquo;ve skipped the part that would have made them good. Instant results you don&rsquo;t understand aren&rsquo;t progress.</p>
-
-          <p>I worry too about what happens beyond work: an internet filling with generated slop, and people quietly substituting a language model for a therapist, a coach, a friend. The convenience is real. So is the erosion.</p>
-
-          <p class="case-page__lead-in">Where I find it genuinely useful</p>
-
-          <p>For all that, I&rsquo;m not precious. Used as an automation tool rather than a replacement for thinking, AI earns its place.</p>
-
-          <p>I reach for it to take the time-consuming and monotonous off my plate, to stand up rough proofs of concept fast, and to consolidate research findings into something I can work with. I build agentic systems to enhance delivery: for example, an NHS GOV.UK Prototyping Tool agent that produces spec pages in response to user needs. I use it as a research partner, because it&rsquo;s genuinely better and faster than I am at scouring the internet for articles, evidence, and leads. And I use it to learn. It&rsquo;s good at spotting the gaps in what I know and pointing me at them.</p>
-
-          <p>One line I hold firmly: I let it proofread, spot errors, and recommend changes with a rationale. I don&rsquo;t let it write or generate in my voice. The judgement stays mine.</p>
-
-          <p class="case-page__lead-in">In short</p>
-
-          <p>AI is a powerful tool, and like any powerful tool it deserves scrutiny rather than reverence. I use it where it removes friction and amplifies my work, and I refuse it where it would replace the thinking, the craft, or the people. That line is where I&rsquo;ve drawn it, and I&rsquo;ll keep redrawing it as the trade-offs become clearer.</p>
-
-        </div>
+    <section class="band--light qnext-wrap">
+      <div class="wrap">
+        <a class="qnext glow-card" href="writing/on-ai-revisited.html" data-reveal>
+          <span class="eyebrow">More writing · November 2026</span>
+          <span class="qnext__title">On AI, revisited</span>
+          <span class="qnext__go" aria-hidden="true">→</span>
+        </a>
       </div>
     </section>
   </main>
 
-  <footer data-include="footer"></footer>
+  <section class="band--dark band--quiet">
+    <div class="wrap cta">
+      <span class="eyebrow">Talk to me about it</span>
+      <h2 class="cta__title">Want to dig in?</h2>
+      <p>Happy to talk AI in delivery, teaching teams to use it well, or where you think I’ve got it wrong.</p>
+      <a class="btn" href="contact.html">Get in touch <span class="btn__arrow" aria-hidden="true">→</span></a>
+    </div>
+    <div data-footer></div>
+  </section>
 
-  <script src="js/includes.js"></script>
-  <script src="js/theme.js"></script>
-  <script src="js/auth.js"></script>
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/ScrollTrigger.min.js"></script>
+  <script src="vendor/lenis.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/site.js"></script>
 </body>
 </html>
