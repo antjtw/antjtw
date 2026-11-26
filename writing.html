@@ -3,10 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Main quests · Ant White</title>
-  <meta name="description" content="Case studies from a decade of design leadership.">
+  <title>Writing & speaking · Ant White</title>
+  <meta name="description" content="Writing, speaking and teaching by Ant White.">
   <meta name="robots" content="noindex">
   <meta name="theme-color" content="#05070D">
+  <script>
+    /* Lock before first paint unless already unlocked (see the gate in js/site.js) */
+    (function () {
+      var ok = false;
+      try {
+        ok = sessionStorage.getItem('aw_auth') === 'unlocked';
+        if (!ok) { var r = JSON.parse(localStorage.getItem('aw_auth') || 'null'); ok = !!(r && r.value === 'unlocked' && r.expires > Date.now()); }
+      } catch (e) {}
+      if (!ok) document.documentElement.classList.add('is-locked');
+    })();
+  </script>
   <link rel="preload" href="fonts/Copernicus-Bold.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/Copernicus-Book.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,32 +25,30 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap">
   <link rel="stylesheet" href="css/site.css">
 </head>
-<body data-page="main">
+<body data-page="writing">
   <a class="skip" href="#main">Skip to content</a>
   <div data-nav></div>
 
   <main id="main">
     <header class="band--dark page-head">
       <div class="wrap">
-        <span class="eyebrow">Work</span>
-        <h1 class="page-head__title">Main quests</h1>
-        <p class="page-head__lede">Case studies from a decade of design leadership across health, government, defence, pharma and telecoms. Some sit behind NDA, so the detail lives in the room.</p>
+        <span class="eyebrow">Writing · Speaking · Teaching</span>
+        <h1 class="page-head__title">Writing &amp; speaking</h1>
+        <p class="page-head__lede">Essays, talks, mentoring and the courses I’m building. More on the way.</p>
       </div>
     </header>
+
     <section class="band--light section">
-      <div class="wrap">
-        <div class="section__head"><div class="tabs" data-filter-for="main-list" role="group" aria-label="Filter"><button type="button" data-filter="all" aria-pressed="true">All</button><button type="button" data-filter="active" aria-pressed="false">In progress</button><button type="button" data-filter="complete" aria-pressed="false">Complete</button><button type="button" data-filter="drafting" aria-pressed="false">Being written</button></div></div>
-        <div class="quest-grid" id="main-list" data-quests="main"></div>
-      </div>
+      <div class="wrap"><ul class="wlist" data-writing></ul></div>
     </section>
   </main>
 
   <section class="band--dark band--quiet">
     <div class="wrap cta">
-      <span class="eyebrow">Want the full story?</span>
-      <h2 class="cta__title">Ask for the deep cut</h2>
-      <p>The NDA bits are best told in person. Happy to walk you through any of these.</p>
-      <a class="btn" href="contact.html">Get in touch <span class="btn__arrow" aria-hidden="true">→</span></a>
+      <span class="eyebrow">Speaking</span>
+      <h2 class="cta__title">Need a speaker?</h2>
+      <p>AI in delivery, building design practices, designing without users. In person or remote.</p>
+      <a class="btn" href="contact.html">Book a talk <span class="btn__arrow" aria-hidden="true">→</span></a>
     </div>
     <div data-footer></div>
   </section>

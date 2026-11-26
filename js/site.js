@@ -25,6 +25,65 @@
   function hash(str) { var h = 0; for (var i = 0; i < str.length; i++) h = (h * 31 + str.charCodeAt(i)) | 0; return Math.abs(h); }
 
   /* ---------------------------------------------------------
+     Password gate
+     A soft gate, not real security: the site is static, so a
+     determined visitor can get past it. It keeps casual visitors
+     out of NDA work. Shares its stored unlock ('aw_auth') with the
+     older case study pages, so unlocking once opens both.
+     To change the password, put the SHA-256 of the new one below:
+       printf '%s' 'new-password' | sha256sum
+  --------------------------------------------------------- */
+  var PASSWORD_HASH = '25fc1c8583383173ed7d6267b24f98171d5072ca3c86939ff04a7baec4f9ea86';
+  if (root.classList.contains('is-locked')) {
+    doc.body.insertAdjacentHTML('afterbegin',
+      '<div class="gate band--dark" role="dialog" aria-modal="true" aria-labelledby="gate-title">' +
+        '<div class="gate__card">' +
+          '<div class="gate__brand">Ant White</div>' +
+          '<span class="eyebrow">Portfolio</span>' +
+          '<h1 id="gate-title">This portfolio is password-protected</h1>' +
+          '<p>Some of the work in here is under NDA, so I hand the password out personally. If you have it, type away. If not, ask and I’ll sort you out.</p>' +
+          '<form id="gate-form" autocomplete="off" novalidate>' +
+            '<div><label for="gate-pw">Password</label><input type="password" id="gate-pw" autocomplete="current-password" required></div>' +
+            '<label class="gate__remember"><input type="checkbox" id="gate-remember"> Remember me on this device for 30 days</label>' +
+            '<p class="gate__error" id="gate-error" role="alert"></p>' +
+            '<div class="gate__actions">' +
+              '<button class="btn" type="submit">View the work <span class="btn__arrow" aria-hidden="true">→</span></button>' +
+              '<a class="btn btn--ghost" href="mailto:anthony@antjtw.com?subject=Password%20request&body=Hi%20Ant%2C%0A%0AI%27ve%20landed%20on%20your%20portfolio%20and%20it%27s%20locked.%20Could%20I%20have%20the%20password%3F%0A%0A">Request access</a>' +
+            '</div>' +
+          '</form>' +
+        '</div>' +
+      '</div>');
+    var gate = $('.gate'), pw = $('#gate-pw'), err = $('#gate-error');
+    setTimeout(function () { pw.focus(); }, 50);
+    pw.addEventListener('input', function () { err.textContent = ''; });
+    $('#gate-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var attempt = pw.value.trim();
+      if (!attempt) return;
+      if (!(window.crypto && crypto.subtle)) { err.textContent = 'This browser can’t check the password. Try another, or request access.'; return; }
+      crypto.subtle.digest('SHA-256', new TextEncoder().encode(attempt)).then(function (buf) {
+        var hex = Array.from(new Uint8Array(buf)).map(function (b) { return b.toString(16).padStart(2, '0'); }).join('');
+        if (hex !== PASSWORD_HASH) {
+          err.textContent = 'That’s not the password. Try again, or request access.';
+          pw.value = ''; pw.focus();
+          gate.classList.remove('is-wrong'); void gate.offsetWidth; gate.classList.add('is-wrong');
+          return;
+        }
+        var saved = true;
+        try {
+          if ($('#gate-remember').checked) localStorage.setItem('aw_auth', JSON.stringify({ value: 'unlocked', expires: Date.now() + 30 * 864e5 }));
+          else sessionStorage.setItem('aw_auth', 'unlocked');
+        } catch (x) { saved = false; }
+        if (saved) { location.reload(); return; }
+        /* Storage blocked: unlock this page view only */
+        root.classList.remove('is-locked');
+        gate.remove();
+        if (window.ScrollTrigger) ScrollTrigger.refresh();
+      });
+    });
+  }
+
+  /* ---------------------------------------------------------
      Pause control (WCAG 2.2.2)
   --------------------------------------------------------- */
   var paused = reduced;
@@ -73,7 +132,7 @@
         '<div class="footer__grid">' +
           '<div><h2>Connect</h2><ul><li><a href="contact.html">Contact</a></li><li><a href="mailto:anthony@antjtw.com">Email</a></li><li><a href="https://www.linkedin.com/in/ant-white/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li></ul></div>' +
           '<div><h2>MTFBWY RPG</h2><ul><li><a href="https://mtfbwyrpg.notion.site/MTFBWY-RPG-e2086dad2790400f9521b18cd290d560?pvs=74" target="_blank" rel="noopener noreferrer">Rules document</a></li><li><a href="https://www.dropbox.com/scl/fo/smrpjontdi1ailt3sifc6/AMRZWCiEb0KNca52zF565Hw?rlkey=e0vdqkxyhn9a1ygi3d6cv8axc&st=7zokoqy9&dl=0" target="_blank" rel="noopener noreferrer">Resources</a></li></ul></div>' +
-          '<div><h2>Other</h2><ul><li><a href="cv.html">Digital CV</a></li><li><a href="https://www.dropbox.com/scl/fo/w5xttt4el73fbboominl1/ABk4T1YDUi1UFG9Na6wEmdE?rlkey=yfwq3czfpr02k86s7jlfpru8g&st=uv745q1f&dl=0" target="_blank" rel="noopener noreferrer">Printable CV</a></li><li><a href="../ai-policy.html">AI use policy</a></li></ul></div>' +
+          '<div><h2>Other</h2><ul><li><a href="cv.html">Digital CV</a></li><li><a href="https://www.dropbox.com/scl/fo/w5xttt4el73fbboominl1/ABk4T1YDUi1UFG9Na6wEmdE?rlkey=yfwq3czfpr02k86s7jlfpru8g&st=uv745q1f&dl=0" target="_blank" rel="noopener noreferrer">Printable CV</a></li><li><a href="ai-policy.html">AI use policy</a></li></ul></div>' +
         '</div>' +
         '<p class="footer__copy">© Anthony White, until the heat death of the universe</p>' +
       '</div></footer>';

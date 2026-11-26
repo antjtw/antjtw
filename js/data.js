@@ -23,7 +23,7 @@ AW.quests = [
     summary: 'Replacing e-RS: helping the NHS see secondary care patients sooner.',
     impact: 'Leading UCD on the move to a new Advice and Guidance platform.',
     tags: ['UX strategy', 'UCD practice', 'AI agents'],
-    href: '../case-studies/nhs-apc.html'
+    href: 'case-studies/nhs-apc.html'
   },
   {
     id: 'westfield-health', type: 'main', status: 'complete', featured: true, hue: 198,
@@ -31,7 +31,7 @@ AW.quests = [
     summary: 'A market-first broker quotation tool, built without talking to users.',
     impact: 'First to market. Design practice and design system from zero.',
     tags: ['Product design', 'Design system'],
-    href: '../case-studies/westfield-health.html'
+    href: 'case-studies/westfield-health.html'
   },
   {
     id: 'ee-add-mobile', type: 'main', status: 'complete', featured: true, hue: 228,
@@ -39,7 +39,7 @@ AW.quests = [
     summary: 'Increasing additional product sales for EE’s digital store.',
     impact: '+31% traffic · +19% conversion · +0.7% direct channel share',
     tags: ['Product design', 'Experimentation'],
-    href: '../case-studies/ee-add-mobile.html'
+    href: 'case-studies/ee-add-mobile.html'
   },
   {
     id: 'govuk-covid', type: 'main', status: 'complete', featured: true, hue: 190,
@@ -47,7 +47,7 @@ AW.quests = [
     summary: 'Letting NHS Trusts and hospitals report COVID-19 test results.',
     impact: '80% faster average reporting across NHS Trusts.',
     tags: ['Interaction design', 'GDS'],
-    href: '../case-studies/govuk-covid.html'
+    href: 'case-studies/govuk-covid.html'
   },
   {
     id: 'ee-data-plans', type: 'main', status: 'complete', featured: true, hue: 240,
@@ -55,7 +55,7 @@ AW.quests = [
     summary: 'Simplifying data plan selection.',
     impact: '29% faster task completion · 8% sales uplift.',
     tags: ['Information design', 'Commercial UX'],
-    href: '../case-studies/ee-data-plans.html'
+    href: 'case-studies/ee-data-plans.html'
   },
   {
     id: 'sky-broadband', type: 'main', status: 'complete', featured: true, hue: 220,
@@ -63,7 +63,7 @@ AW.quests = [
     summary: 'Helping Sky Broadband customers check their service.',
     impact: 'Modernised the Broadband & Talk Hub. Patterns fed into Polaris.',
     tags: ['UI design', 'Design systems'],
-    href: '../case-studies/sky-broadband.html'
+    href: 'case-studies/sky-broadband.html'
   },
   {
     id: 'make-shift', type: 'main', status: 'drafting', featured: false, hue: 205,
@@ -71,7 +71,7 @@ AW.quests = [
     summary: 'A national AI hackathon for designers.',
     impact: 'An internal event for AI upskilling and envelope-pushing.',
     tags: ['Practice', 'AI upskilling'],
-    href: '../case-studies/make-shift-hackathon.html'
+    href: 'case-studies/make-shift-hackathon.html'
   },
   {
     id: 'sky-pitch', type: 'main', status: 'complete', featured: false, hue: 235,
@@ -79,7 +79,7 @@ AW.quests = [
     summary: 'Pushing Sky’s design language to the next level.',
     impact: 'A sharper, bolder Sky.',
     tags: ['Visual design'],
-    href: '../case-studies/sky-corporate-pitch.html'
+    href: 'case-studies/sky-corporate-pitch.html'
   },
 
   /* ---- Side quests ---- */
@@ -89,7 +89,7 @@ AW.quests = [
     summary: 'Designing a Star Wars-inspired tabletop RPG from scratch.',
     impact: 'Rules, character sheets, GM tools and a virtual tabletop. Closed beta v1.1.1.',
     tags: ['Game design', 'Systems'],
-    href: '../case-studies/mtfbwy-rpg.html'
+    href: 'case-studies/mtfbwy-rpg.html'
   },
   {
     id: 'ynepf', type: 'side', status: 'active', featured: true, hue: 195,
@@ -113,7 +113,7 @@ AW.quests = [
 AW.practice = [
   { key: 'ai', label: 'AI, done properly', stat: 'Agents in delivery',
     body: 'Agentic tooling that speeds delivery without replacing judgement: spec-writing agents for the GOV.UK Prototype Kit, research synthesis, rapid proofs of concept.',
-    link: { text: 'How I think about AI', href: '../ai-policy.html' } },
+    link: { text: 'How I think about AI', href: 'ai-policy.html' } },
   { key: 'transform', label: 'Transformation', stat: 'Practices built from zero',
     body: 'Design practices and systems built where there were none, research without user access, and a volunteer federation taken from spreadsheets to strategy.',
     link: { text: 'Main quests', href: 'main-quests.html' } },
@@ -124,7 +124,7 @@ AW.practice = [
 
 /* ---------- Writing & speaking ---------- */
 AW.writing = [
-  { kind: 'Writing',  title: 'On AI: a sceptic’s working position', meta: 'Essay', year: '2026', href: '../ai-policy.html' },
+  { kind: 'Writing',  title: 'On AI: a sceptic’s working position', meta: 'Essay', year: '2026', href: 'ai-policy.html' },
   { kind: 'Speaking', title: 'Agentic prototyping in the NHS', meta: 'Internal talk', year: '2026' },
   { kind: 'Teaching', title: 'Mentoring designers', meta: 'Seven reports, two mentees', year: 'Ongoing' },
   { kind: 'Writing',  title: 'Designing without users', meta: 'Coming soon', year: '', soon: true },

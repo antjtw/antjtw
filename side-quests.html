@@ -7,6 +7,17 @@
   <meta name="description" content="Things Ant builds outside work.">
   <meta name="robots" content="noindex">
   <meta name="theme-color" content="#05070D">
+  <script>
+    /* Lock before first paint unless already unlocked (see the gate in js/site.js) */
+    (function () {
+      var ok = false;
+      try {
+        ok = sessionStorage.getItem('aw_auth') === 'unlocked';
+        if (!ok) { var r = JSON.parse(localStorage.getItem('aw_auth') || 'null'); ok = !!(r && r.value === 'unlocked' && r.expires > Date.now()); }
+      } catch (e) {}
+      if (!ok) document.documentElement.classList.add('is-locked');
+    })();
+  </script>
   <link rel="preload" href="fonts/Copernicus-Bold.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/Copernicus-Book.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">

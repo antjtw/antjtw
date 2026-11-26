@@ -2,139 +2,83 @@
 <html lang="en-GB">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CV &mdash; Ant White</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>CV · Ant White</title>
+  <meta name="description" content="Ant White’s CV.">
   <meta name="robots" content="noindex">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta name="theme-color" content="#05070D">
   <script>
-    // Inline so we set the theme before any paint to avoid flash
+    /* Lock before first paint unless already unlocked (see the gate in js/site.js) */
     (function () {
+      var ok = false;
       try {
-        var t = localStorage.getItem('aw_theme');
-        if (t === 'dark' || t === 'light') {
-          document.documentElement.setAttribute('data-theme', t);
-        }
+        ok = sessionStorage.getItem('aw_auth') === 'unlocked';
+        if (!ok) { var r = JSON.parse(localStorage.getItem('aw_auth') || 'null'); ok = !!(r && r.value === 'unlocked' && r.expires > Date.now()); }
       } catch (e) {}
+      if (!ok) document.documentElement.classList.add('is-locked');
     })();
   </script>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preload" href="fonts/Copernicus-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/Copernicus-Book.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap">
+  <link rel="stylesheet" href="css/site.css">
 </head>
-<body data-protected="true">
-
-  <header data-include="header"></header>
+<body data-page="cv">
+  <a class="skip" href="#main">Skip to content</a>
+  <div data-nav></div>
 
   <main id="main">
-    <section class="cv-page">
-      <div class="wrapper">
+    <header class="band--dark page-head">
+      <div class="wrap">
+        <span class="eyebrow">CV</span>
+        <h1 class="page-head__title">Design leader</h1>
+        <p class="page-head__lede">Twelve years from junior creative to leading user-centred design for NHS England. Open a role to see what I did there.</p>
+      </div>
+    </header>
 
-        <div class="case-page__chips">
-          <span class="chip chip--primary">CV</span>
-          <span class="chip">2025</span>
+    <section class="band--light section">
+      <div class="wrap two">
+        <div class="prose" data-reveal>
+          <span class="eyebrow">Summary</span>
+          <p style="margin-top:12px">Somewhere along the way I worked out that the job isn’t making the thing, it’s making the team that makes the thing.</p>
+          <p>I’ve built design practices and systems from nothing, run research when we weren’t allowed to talk to users, and shipped experiments that moved commercial numbers. Today I’m pointing that at AI: agentic tooling that takes the grind off designers so they can think harder.</p>
+          <p>Outside work I co-chair the Yorkshire &amp; North East Powerlifting Federation and design MTFBWY, a tabletop RPG.</p>
+          <a class="btn btn--ghost" href="https://www.dropbox.com/scl/fo/w5xttt4el73fbboominl1/ABk4T1YDUi1UFG9Na6wEmdE?rlkey=yfwq3czfpr02k86s7jlfpru8g&amp;st=uv745q1f&amp;dl=0" target="_blank" rel="noopener noreferrer">Printable CV ↗</a>
         </div>
-
-        <h1>Design leader &middot; Principal-track</h1>
-        <p><!-- Short intro paragraph goes here. --></p>
-
-        <h2>Experience</h2>
-
-        <h3>NHS England</h3>
-        <p class="role">UCD Lead (Jan 2026 &ndash; Present)</p>
-        <ul>
-          <li><!-- Add scope, team size, focus area --></li>
-        </ul>
-
-        <h3>AstraZeneca</h3>
-        <p class="role">Lead Designer, AI Transform (Oct 2025 &ndash; Jan 2026) via Accenture</p>
-        <ul>
-          <li><!-- High-level engagement detail; NDA-safe --></li>
-        </ul>
-
-        <h3>Accenture</h3>
-        <p class="role">Senior Design Consultant (Jun 2022 &ndash; Present)</p>
-        <ul>
-          <li><!-- Practice contribution, mentoring (7 reports) --></li>
-        </ul>
-
-        <h3>Westfield Health</h3>
-        <p class="role">Lead UX Designer (Mar 2023 &ndash; Sept 2025) via Accenture</p>
-        <ul>
-          <li><!-- One-person UX team --></li>
-          <li><!-- Design system / practice from zero --></li>
-        </ul>
-
-        <h3>Ministry of Defence</h3>
-        <p class="role">Senior UX Designer (Nov 2022 &ndash; Jan 2023) via Accenture</p>
-        <ul>
-          <li><!-- Discovery and pitch; NDA-safe --></li>
-        </ul>
-
-        <h3>UK Health (NHS Test &amp; Trace Programme)</h3>
-        <p class="role">Senior Interaction Designer (Jun 2022 &ndash; Nov 2022) via Accenture</p>
-        <ul>
-          <li><!-- GOV.UK Prototyping Tool / GDS Design System --></li>
-          <li>80% reduction in average reporting times across NHS Trusts</li>
-        </ul>
-
-        <h3>BT Consumer (EE)</h3>
-        <p class="role">Lead Product Designer (Nov 2019 &ndash; Jun 2022)</p>
-        <ul>
-          <li>31% traffic uplift, 19% conversion lift, +0.7% direct channel share on Add Mobile</li>
-          <li>29% faster task completion on SIM-only plan selection</li>
-          <li><!-- Mentoring, design system contribution (Loop), Figma adoption --></li>
-        </ul>
-
-        <h3>Sky</h3>
-        <p class="role">UI Designer (May 2018 &ndash; Nov 2019)</p>
-        <ul>
-          <li><!-- Polaris design system contribution --></li>
-        </ul>
-
-        <h3>Bolser</h3>
-        <p class="role">UX/UI Designer (Jun 2016 &ndash; May 2018)</p>
-
-        <h3>United by Design</h3>
-        <p class="role">Junior Graphic Designer (Jan 2015 &ndash; Jun 2016)</p>
-
-        <h3>Bloom (JayWing)</h3>
-        <p class="role">Junior Creative (May 2014 &ndash; Jan 2015)</p>
-
-        <h2>Education</h2>
-
-        <h3>Nielsen Norman Group (NN/g)</h3>
-        <p class="role">UX Master Certification</p>
-
-        <h3>Leeds Arts University</h3>
-        <p class="role">BA (Hons) Graphic Design &middot; Upper Second Class (2:1)</p>
-
-        <h3>York College</h3>
-        <p class="role">ND3 Graphic Design &middot; Triple Distinction</p>
-
-        <h2>Beyond work</h2>
-
-        <h3>Mentoring &amp; line management</h3>
-        <ul>
-          <li>Seven direct reports across varying seniorities at Accenture</li>
-          <li>Two external mentees; one now Lead Designer</li>
-        </ul>
-
-        <h3>MTFBWY RPG</h3>
-        <ul>
-          <li>TTRPG and UX designer &middot; alpha/beta released</li>
-        </ul>
-
-        <h3>Yorkshire and North East Powerlifting Federation</h3>
-        <p class="role">Co-Chair (Strategy &amp; Digital Experience)</p>
-
+        <div>
+          <div class="section__head" style="margin-bottom:8px">
+            <div><span class="eyebrow">Experience</span></div>
+            <div class="tabs" data-cv-filter="cv" role="group" aria-label="Filter"><button type="button" data-filter="all" aria-pressed="true">All</button><button type="button" data-filter="Leadership" aria-pressed="false">Leadership</button><button type="button" data-filter="AI" aria-pressed="false">AI</button><button type="button" data-filter="Product" aria-pressed="false">Product</button><button type="button" data-filter="Systems" aria-pressed="false">Systems</button><button type="button" data-filter="Craft" aria-pressed="false">Craft</button></div>
+          </div>
+          <ol class="timeline" data-cv></ol>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="facts">
+          <div class="fact" data-reveal><span class="eyebrow">Education</span><strong>Leeds Arts University</strong><span>BA (Hons) Graphic Design, 2:1</span></div>
+          <div class="fact" data-reveal><span class="eyebrow">Certification</span><strong>Nielsen Norman Group</strong><span>UX Master Certification</span></div>
+          <div class="fact" data-reveal><span class="eyebrow">Beyond work</span><strong>YNE Powerlifting Federation</strong><span>Co-Chair, strategy &amp; digital</span></div>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer data-include="footer"></footer>
+  <section class="band--dark band--quiet">
+    <div class="wrap cta">
+      <span class="eyebrow">Player two has entered the game</span>
+      <h2 class="cta__title">Got a quest?</h2>
+      <p>Leadership roles, talks, mentoring, or a long chat about Star Wars.</p>
+      <a class="btn" href="contact.html">Get in touch <span class="btn__arrow" aria-hidden="true">→</span></a>
+    </div>
+    <div data-footer></div>
+  </section>
 
-  <script src="js/includes.js"></script>
-    <script src="js/theme.js"></script>
-  <script src="js/auth.js"></script>
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/ScrollTrigger.min.js"></script>
+  <script src="vendor/lenis.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/site.js"></script>
 </body>
 </html>

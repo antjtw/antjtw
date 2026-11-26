@@ -389,3 +389,26 @@ a.wrow:hover .wrow__go { transform: translateX(4px); }
   [data-reveal] { opacity: 1; transform: none; }
   .statement .w { color: var(--l-ink); }
 }
+
+/* =========================================================
+   Password gate (soft gate: keeps casual visitors out)
+   ========================================================= */
+.gate { display: none; }
+html.is-locked body { overflow: hidden; }
+html.is-locked body > *:not(.gate) { display: none !important; }
+html.is-locked .gate { display: grid; position: fixed; inset: 0; z-index: 2000; place-items: center; padding: 24px var(--gutter); overflow-y: auto; }
+.gate__card { position: relative; width: min(560px, 100%); padding: clamp(28px, 5vw, 48px); background: rgba(5, 7, 13, .78); box-shadow: 0 0 0 1px var(--d-line), 0 40px 120px -30px rgba(21, 133, 232, .6); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
+.gate__card::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 3px; background: var(--hairline); box-shadow: 0 0 14px rgba(63, 208, 255, .5); }
+.gate__brand { font: 700 22px var(--serif); margin-bottom: 26px; }
+.gate h1 { font-size: clamp(28px, 3vw, 36px); line-height: 1.08; margin: 10px 0 14px; }
+.gate p { color: var(--d-dim); font-size: 17px; }
+.gate form { display: grid; gap: 16px; margin-top: 26px; }
+.gate label { font: 500 12px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--d-dim); }
+.gate input[type="password"] { width: 100%; margin-top: 8px; padding: 14px 16px; border-radius: var(--r); background: rgba(4, 6, 13, .9); color: var(--d-ink); font: 18px/1.5 var(--sans); border: 1.5px solid var(--d-line); transition: border-color .2s, box-shadow .3s; }
+.gate input[type="password"]:focus { outline: none; border-color: var(--blue-hi); box-shadow: 0 0 0 4px rgba(21, 133, 232, .25), 0 0 30px rgba(21, 133, 232, .3); }
+.gate__remember { display: flex; align-items: center; gap: 10px; font: 400 15px var(--sans) !important; letter-spacing: 0 !important; text-transform: none !important; cursor: pointer; }
+.gate__remember input { width: 18px; height: 18px; accent-color: var(--blue); }
+.gate__error { min-height: 1.5em; color: #FF8FA3; font: 500 15px var(--sans); }
+.gate__actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.gate.is-wrong .gate__card { animation: shake .4s var(--ease); }
+@keyframes shake { 20%, 60% { transform: translateX(-8px); } 40%, 80% { transform: translateX(8px); } }

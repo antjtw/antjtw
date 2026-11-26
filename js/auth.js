@@ -24,7 +24,7 @@
 (function () {
   'use strict';
 
-  // SHA-256 of "please-hire-me"
+  // SHA-256 of the portfolio password (shared with js/site.js)
   // To change: run hashPassword('your-password') in the
   // browser console on the password page and paste the
   // result below.

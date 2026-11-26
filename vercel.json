@@ -5,6 +5,11 @@
   "framework": null,
   "trailingSlash": false,
   "cleanUrls": true,
+  "redirects": [
+    { "source": "/work", "destination": "/main-quests", "permanent": true },
+    { "source": "/v2", "destination": "/", "permanent": false },
+    { "source": "/v2/:path*", "destination": "/:path*", "permanent": false }
+  ],
   "headers": [
     {
       "source": "/(.*)",
