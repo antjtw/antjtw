@@ -2,97 +2,85 @@
 <html lang="en-GB">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simplifying data plan selection &mdash; Ant White</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Simplifying data plan selection · Ant White</title>
   <meta name="robots" content="noindex">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta name="theme-color" content="#05070D">
   <script>
-    // Inline so we set the theme before any paint to avoid flash
+    /* Lock before first paint unless already unlocked (see the gate in js/site.js) */
     (function () {
+      var ok = false;
       try {
-        var t = localStorage.getItem('aw_theme');
-        if (t === 'dark' || t === 'light') {
-          document.documentElement.setAttribute('data-theme', t);
-        }
+        ok = sessionStorage.getItem('aw_auth') === 'unlocked';
+        if (!ok) { var r = JSON.parse(localStorage.getItem('aw_auth') || 'null'); ok = !!(r && r.value === 'unlocked' && r.expires > Date.now()); }
       } catch (e) {}
+      if (!ok) document.documentElement.classList.add('is-locked');
     })();
   </script>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
-  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="preload" href="../fonts/Copernicus-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/Copernicus-Book.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap">
+  <link rel="stylesheet" href="../css/site.css">
 </head>
-<body data-protected="true" data-auth-path="../index.html" data-base="../">
-
-  <header data-include="header"></header>
+<body data-page="main" data-base="../">
+  <a class="skip" href="#main">Skip to content</a>
+  <div data-nav></div>
 
   <main id="main">
-    <article class="case-page">
-      <div class="wrapper">
-        <div class="case-page__chips">
-          <span class="chip chip--primary">Product Design</span>
-          <span class="chip">EE SIM-only</span>
-        </div>
+    <header class="band--dark qhead">
+      <div class="wrap">
+        <a class="qhead__back" href="../main-quests.html">← All main quests</a>
+        <span class="eyebrow">Main quest · telecoms · Complete</span>
+        <h1 class="qhead__title">Simplifying data plan selection</h1>
+        <div class="qhead__tags"><span class="qtag">Product Design</span><span class="qtag">EE SIM-only</span></div>
+        <dl class="qmeta"><div><dt>Role</dt><dd>Senior Product Designer</dd></div><div><dt>Team</dt><dd>SIM-only acquisition team</dd></div><div><dt>Duration</dt><dd>EE / BT Consumer</dd></div><div><dt>Impact</dt><dd>29% faster task completion, 8% sales uplift</dd></div></dl>
+      </div>
+    </header>
 
-        <h1>Simplifying data plan selection</h1>
-
-        <div class="case-page__hero-img">
-          <!-- Drop hero image at ../images/ee-data-plans-hero.png -->
-        </div>
-        <p class="case-page__caption">An array of plan card variants. Content design by Emma Paines, product design by me.</p>
-
-        <dl class="case-page__meta">
-          <div>
-            <dt>Role</dt>
-            <dd>Senior Product Designer</dd>
-          </div>
-          <div>
-            <dt>Team</dt>
-            <dd>SIM-only acquisition team</dd>
-          </div>
-          <div>
-            <dt>Duration</dt>
-            <dd>EE / BT Consumer</dd>
-          </div>
-          <div>
-            <dt>Impact</dt>
-            <dd>29% faster task completion, 8% sales uplift</dd>
-          </div>
-        </dl>
-
-        <div class="case-page__body">
-
-          <p class="case-page__lead-in">The situation</p>
-          <p>EE&rsquo;s SIM-only plan selection journey wasn&rsquo;t serving its customers well. Plans were laid out in ways that made comparison hard, the Smart Benefits offering was buried, and users couldn&rsquo;t easily tell what they were getting for the price difference between tiers. From a commercial perspective, the team also wanted customers to recognise the value of higher-tier plans, not to push people up the ladder, but to make sure customers who&rsquo;d genuinely benefit from a better plan could see why.</p>
-
-          <p class="case-page__lead-in">What I did</p>
-          <p>I led the redesign of EE&rsquo;s data plan cards as Senior Product Designer on the SIM-only acquisition team, working closely with content designer Emma Paines and the wider product, brand, and marketing teams. We ran interviews, analytics deep-dives, and workshops to understand where comparison was breaking down. I led ideation and testing sessions to rework layout, hierarchy, and content, simplifying the decision while still supporting the upsell objective.</p>
-
-          <!-- IMAGE: data plan card variants, ideally the array from the original slide showing different states. Drop at ../images/ee-data-plans-variants.png (16:9). -->
-          <div class="case-page__image">
-            <div class="placeholder"></div>
-          </div>
-          <p class="case-page__caption">An array of the validated plan card variants. Content design by Emma Paines, product design by me.</p>
-
-          <p class="case-page__lead-in">The result</p>
-          <p><strong>29% faster task completion</strong> in moderated usability testing, an <strong>8% sales uplift</strong> after rollout, and a measurable shift toward higher-value plans. The last one is the outcome I&rsquo;d point a Principal interviewer at: shifting customers up the value ladder through clearer information design rather than dark patterns is a Lead-level problem to solve well. Customers were buying better-fitting plans, not getting nudged into ones they didn&rsquo;t need.</p>
-
-          <p class="case-page__lead-in">What I took from this</p>
-          <p>Information design with commercial intent is where UX and product strategy meet. Most designers can lift conversion. Fewer know how to lift average order value through clarity, without sacrificing the user&rsquo;s trust. That balance is the work.</p>
-
-          <div class="case-page__next">
-            <p>Next case study</p>
-            <a href="westfield-health.html">Creating a market-first broker quotation tool &rarr;</a>
-          </div>
-
+    <article class="band--light qbody" style="--hue:240">
+      <div class="wrap qbody__wrap">
+        <figure class="qfig" data-reveal><div class="qfig__row"><div class="qfig__art" style="--h:240"><span>Screens shared on request</span></div></div><figcaption>An array of plan card variants. Content design by Emma Paines, product design by me.</figcaption></figure>
+        <div class="qprose">
+          <h2 data-reveal>The situation</h2>
+          <p>EE’s SIM-only plan selection journey wasn’t serving its customers well. Plans were laid out in ways that made comparison hard, the Smart Benefits offering was buried, and users couldn’t easily tell what they were getting for the price difference between tiers. From a commercial perspective, the team also wanted customers to recognise the value of higher-tier plans, not to push people up the ladder, but to make sure customers who’d genuinely benefit from a better plan could see why.</p>
+          <h2 data-reveal>What I did</h2>
+          <p>I led the redesign of EE’s data plan cards as Senior Product Designer on the SIM-only acquisition team, working closely with content designer Emma Paines and the wider product, brand, and marketing teams. We ran interviews, analytics deep-dives, and workshops to understand where comparison was breaking down. I led ideation and testing sessions to rework layout, hierarchy, and content, simplifying the decision while still supporting the upsell objective.</p>
+          <figure class="qfig" data-reveal><div class="qfig__row"><div class="qfig__art" style="--h:240"><span>Screens shared on request</span></div></div><figcaption>An array of the validated plan card variants. Content design by Emma Paines, product design by me.</figcaption></figure>
+          <h2 data-reveal>The result</h2>
+          <p><strong>29% faster task completion</strong> in moderated usability testing, an <strong>8% sales uplift</strong> after rollout, and a measurable shift toward higher-value plans. The last one is the outcome I’d point a Principal interviewer at: shifting customers up the value ladder through clearer information design rather than dark patterns is a Lead-level problem to solve well. Customers were buying better-fitting plans, not getting nudged into ones they didn’t need.</p>
+          <h2 data-reveal>What I took from this</h2>
+          <p>Information design with commercial intent is where UX and product strategy meet. Most designers can lift conversion. Fewer know how to lift average order value through clarity, without sacrificing the user’s trust. That balance is the work.</p>
         </div>
       </div>
     </article>
+
+    <section class="band--light qnext-wrap">
+      <div class="wrap">
+        <a class="qnext glow-card" href="sky-broadband.html" data-reveal>
+          <span class="eyebrow">Next · Main quest</span>
+          <span class="qnext__title">Enabling Sky Broadband users to check their service</span>
+          <span class="qnext__go" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
   </main>
 
-  <footer data-include="footer"></footer>
+  <section class="band--dark band--quiet">
+    <div class="wrap cta">
+      <span class="eyebrow">Want the full story?</span>
+      <h2 class="cta__title">Ask for the deep cut</h2>
+      <p>The NDA bits are best told in person. Happy to walk you through this one.</p>
+      <a class="btn" href="../contact.html">Get in touch <span class="btn__arrow" aria-hidden="true">→</span></a>
+    </div>
+    <div data-footer></div>
+  </section>
 
-  <script src="../js/includes.js"></script>
-    <script src="../js/theme.js"></script>
-  <script src="../js/auth.js"></script>
+  <script src="../vendor/gsap.min.js"></script>
+  <script src="../vendor/ScrollTrigger.min.js"></script>
+  <script src="../vendor/lenis.min.js"></script>
+  <script src="../js/data.js"></script>
+  <script src="../js/site.js"></script>
 </body>
 </html>

@@ -2,120 +2,77 @@
 <html lang="en-GB">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NHS Appointments &amp; Referrals &mdash; Ant White</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Replacing e-RS: helping the NHS see secondary care patients sooner · Ant White</title>
   <meta name="robots" content="noindex">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta name="theme-color" content="#05070D">
   <script>
-    // Inline so we set the theme before any paint to avoid flash
+    /* Lock before first paint unless already unlocked (see the gate in js/site.js) */
     (function () {
+      var ok = false;
       try {
-        var t = localStorage.getItem('aw_theme');
-        if (t === 'dark' || t === 'light') {
-          document.documentElement.setAttribute('data-theme', t);
-        }
+        ok = sessionStorage.getItem('aw_auth') === 'unlocked';
+        if (!ok) { var r = JSON.parse(localStorage.getItem('aw_auth') || 'null'); ok = !!(r && r.value === 'unlocked' && r.expires > Date.now()); }
       } catch (e) {}
+      if (!ok) document.documentElement.classList.add('is-locked');
     })();
   </script>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
-  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="preload" href="../fonts/Copernicus-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/Copernicus-Book.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap">
+  <link rel="stylesheet" href="../css/site.css">
 </head>
-<body data-protected="true" data-auth-path="../index.html" data-base="../">
-
-  <header data-include="header"></header>
+<body data-page="main" data-base="../">
+  <a class="skip" href="#main">Skip to content</a>
+  <div data-nav></div>
 
   <main id="main">
-    <article class="case-page">
-      <div class="wrapper">
-        <div class="case-page__chips">
-          <span class="chip chip--primary">UX Strategy</span>
-          <span class="chip">UCD Practice</span>
-          <span class="chip">NHS England</span>
-          <span class="chip chip--short-read">In progress</span>
-        </div>
+    <header class="band--dark qhead">
+      <div class="wrap">
+        <a class="qhead__back" href="../main-quests.html">← All main quests</a>
+        <span class="eyebrow">Main quest · health · In progress</span>
+        <h1 class="qhead__title">Replacing e-RS: helping the NHS see secondary care patients sooner</h1>
+        <div class="qhead__tags"><span class="qtag">UX Strategy</span><span class="qtag">UCD Practice</span><span class="qtag">NHS England</span></div>
+        <dl class="qmeta"><div><dt>Role</dt><dd>UCD Cluster Lead</dd></div><div><dt>Duration</dt><dd>Jan 2026 – Present</dd></div></dl>
+      </div>
+    </header>
 
-        <h1>Replacing e-RS: helping the NHS see secondary care patients sooner</h1>
-
-        <div class="case-page__pull">
-          <p>This case study is being written. I&rsquo;m the UCD Lead on this NHS England programme; the work is current and the right detail takes care to share. Drop me a line at <a href="mailto:anthony@antjtw.com?subject=Tell%20me%20about%20the%20NHS%20work%20%28when%20you%20can%29&body=Hi%20Ant%2C%0A%0AI%20just%20read%20your%20%22in%20progress%22%20note%20on%20the%20NHS%20England%20Referrals%20and%20Appointments%20work%20and%20I%27m%20curious.%20%5BTell%20you%20something%20about%20who%20I%20am%20and%20what%20I%20want%20to%20know.%5D%0A%0A%5BYour%20name%5D">anthony@antjtw.com</a> if you&rsquo;d like to talk about it directly.</p>
-        </div>
-
-        <div class="case-page__hero-img">
-          <!-- Drop hero image at ../images/nhs-apc-hero.png (16:9) -->
-        </div>
-        <p class="case-page__caption">Service design by Tom Morgan and Santra Navas. Concept-stage service design and early testing by Aoife Power. UCD Lead and design by me.</p>
-
-        <dl class="case-page__meta">
-          <div>
-            <dt>Role</dt>
-            <dd>UCD Lead</dd>
-          </div>
-          <div>
-            <dt>Team</dt>
-            <dd><!-- TEAM: e.g. "Multi-disciplinary UCD team across the programme" --></dd>
-          </div>
-          <div>
-            <dt>Duration</dt>
-            <dd>Jan 2026 &ndash; Present</dd>
-          </div>
-          <div>
-            <dt>Impact</dt>
-            <dd><!-- IMPACT: scope-led if no outcomes yet, e.g. "Embedding UCD practice across [scope]" --></dd>
-          </div>
-        </dl>
-
-        <div class="case-page__body">
-
-          <p class="case-page__lead-in">The situation</p>
-          <p><!-- BODY: business / clinical / user problem that triggered the work. Why now, why this team. --></p>
-
-          <p class="case-page__lead-in">My remit</p>
-          <p><!-- BODY: what you're shaping. Practice? Single product? Multiple workstreams? Reporting line. What "UCD Lead" means in this context. --></p>
-
-          <!-- IMAGE BLOCK 1 (optional): use this if you have artefacts you can show without disclosure issues. Otherwise delete. -->
-          <div class="case-page__image">
-            <div class="placeholder"></div>
-          </div>
-          <p class="case-page__caption"><!-- CAPTION 1 --></p>
-
-          <p class="case-page__lead-in">The constraint that shaped the work</p>
-          <div class="case-page__pull">
-            <p><!-- PULL QUOTE: the Principal-grade tension. Political? Methodological? Scale? Speed? --></p>
-          </div>
-
-          <p><!-- BODY: unpack the constraint. How you've responded. --></p>
-
-          <p class="case-page__lead-in">What I&rsquo;m building</p>
-          <p><!-- BODY: the practice / methodology / capability you're putting in place. THIS is the Principal-track signal — not what you're shipping, but how you're changing how the team works. --></p>
-
-          <!-- IMAGE BLOCK 2 (optional) -->
-          <div class="case-page__images-2up">
-            <div class="placeholder"></div>
-            <div class="placeholder"></div>
-          </div>
-          <p class="case-page__caption"><!-- CAPTION 2 --></p>
-
-          <p class="case-page__lead-in">Where it&rsquo;s landing</p>
-          <p><!-- BODY: what's moved in the first 5 months. Honest about being early. "Ask me in 6 months for shipped numbers" is fine if true. --></p>
-
-          <p class="case-page__lead-in">What I&rsquo;m taking from this</p>
-          <p><!-- BODY: the Principal-level reflection. Not "I learned X" — more "here's what this kind of work teaches you that no other context does." --></p>
-
-          <div class="case-page__next">
-            <p>Next case study</p>
-            <a href="ee-add-mobile.html">Increasing additional product sales for EE&rsquo;s digital store &rarr;</a>
-          </div>
-
+    <article class="band--light qbody" style="--hue:212">
+      <div class="wrap qbody__wrap">
+        <figure class="qfig" data-reveal><div class="qfig__row"><div class="qfig__art" style="--h:212"><span>Screens shared on request</span></div></div><figcaption>Service design by Tom Morgan and Santra Navas. Concept-stage service design and early testing by Aoife Power. UCD Cluster Lead and design by me.</figcaption></figure>
+        <div class="qprose">
+          <div class="qdraft" data-reveal><span class="eyebrow">Quest log being written</span><p>This case study is being written. I’m the UCD Cluster Lead on this NHS England programme; the work is current and the right detail takes care to share. Drop me a line at <a href="mailto:anthony@antjtw.com?subject=Tell%20me%20about%20the%20NHS%20work%20%28when%20you%20can%29&amp;body=Hi%20Ant%2C%0A%0AI%20just%20read%20your%20%22in%20progress%22%20note%20on%20the%20NHS%20England%20Referrals%20and%20Appointments%20work%20and%20I%27m%20curious.%20%5BTell%20you%20something%20about%20who%20I%20am%20and%20what%20I%20want%20to%20know.%5D%0A%0A%5BYour%20name%5D">anthony@antjtw.com</a> if you’d like to talk about it directly.</p><a class="btn" href="../contact.html">Ask me about it <span class="btn__arrow" aria-hidden="true">→</span></a></div>
         </div>
       </div>
     </article>
+
+    <section class="band--light qnext-wrap">
+      <div class="wrap">
+        <a class="qnext glow-card" href="westfield-health.html" data-reveal>
+          <span class="eyebrow">Next · Main quest</span>
+          <span class="qnext__title">Creating a market-first broker quotation tool</span>
+          <span class="qnext__go" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
   </main>
 
-  <footer data-include="footer"></footer>
+  <section class="band--dark band--quiet">
+    <div class="wrap cta">
+      <span class="eyebrow">Want the full story?</span>
+      <h2 class="cta__title">Ask for the deep cut</h2>
+      <p>The NDA bits are best told in person. Happy to walk you through this one.</p>
+      <a class="btn" href="../contact.html">Get in touch <span class="btn__arrow" aria-hidden="true">→</span></a>
+    </div>
+    <div data-footer></div>
+  </section>
 
-  <script src="../js/includes.js"></script>
-    <script src="../js/theme.js"></script>
-  <script src="../js/auth.js"></script>
+  <script src="../vendor/gsap.min.js"></script>
+  <script src="../vendor/ScrollTrigger.min.js"></script>
+  <script src="../vendor/lenis.min.js"></script>
+  <script src="../js/data.js"></script>
+  <script src="../js/site.js"></script>
 </body>
 </html>

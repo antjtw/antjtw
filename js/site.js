@@ -107,17 +107,20 @@
     { href: 'contact.html', label: 'Contact', key: 'contact' }
   ];
   var page = doc.body.dataset.page || 'home';
+  /* Pages in sub-folders (case-studies/) set data-base="../" so shared links still resolve */
+  var base = doc.body.dataset.base || '';
+  function rebase(markup) { return base ? markup.replace(/href="(?!https?:|mailto:|#|\/|\.\.\/)([^"]+)"/g, 'href="' + base + '$1"') : markup; }
 
   var navSlot = $('[data-nav]');
   if (navSlot) {
-    navSlot.outerHTML =
+    navSlot.outerHTML = rebase(
       '<header class="nav" id="nav"><div class="wrap nav__inner">' +
         '<a class="brand" href="index.html">Ant White</a>' +
         '<nav aria-label="Primary"><ul class="nav__links" id="nav-links">' +
           NAV.map(function (n) { return '<li><a href="' + n.href + '"' + (n.key === page ? ' aria-current="page"' : '') + '>' + n.label + '</a></li>'; }).join('') +
         '</ul></nav>' +
         '<button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu"><span></span><span></span><span></span></button>' +
-      '</div><div class="nav__line" aria-hidden="true"><i></i></div></header>';
+      '</div><div class="nav__line" aria-hidden="true"><i></i></div></header>');
     var nav = $('#nav'), toggle = $('.nav__toggle', nav);
     toggle.addEventListener('click', function () {
       var open = nav.classList.toggle('is-open');
@@ -127,7 +130,7 @@
 
   var footSlot = $('[data-footer]');
   if (footSlot) {
-    footSlot.outerHTML =
+    footSlot.outerHTML = rebase(
       '<footer class="footer"><div class="wrap">' +
         '<div class="footer__grid">' +
           '<div><h2>Connect</h2><ul><li><a href="contact.html">Contact</a></li><li><a href="mailto:anthony@antjtw.com">Email</a></li><li><a href="https://www.linkedin.com/in/ant-white/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li></ul></div>' +
@@ -135,7 +138,7 @@
           '<div><h2>Other</h2><ul><li><a href="cv.html">Digital CV</a></li><li><a href="https://www.dropbox.com/scl/fo/w5xttt4el73fbboominl1/ABk4T1YDUi1UFG9Na6wEmdE?rlkey=yfwq3czfpr02k86s7jlfpru8g&st=uv745q1f&dl=0" target="_blank" rel="noopener noreferrer">Printable CV</a></li><li><a href="ai-policy.html">AI use policy</a></li></ul></div>' +
         '</div>' +
         '<p class="footer__copy">© Anthony White, until the heat death of the universe</p>' +
-      '</div></footer>';
+      '</div></footer>');
   }
 
   $$('.band--dark').forEach(function (band) {

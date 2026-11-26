@@ -440,3 +440,53 @@ html.is-locked .gate { display: grid; position: fixed; inset: 0; z-index: 2000; 
 .gate__actions { display: flex; flex-wrap: wrap; gap: 12px; }
 .gate.is-wrong .gate__card { animation: shake .4s var(--ease); }
 @keyframes shake { 20%, 60% { transform: translateX(-8px); } 40%, 80% { transform: translateX(8px); } }
+
+/* =========================================================
+   Quest (case study) pages
+   ========================================================= */
+.qhead { padding: clamp(56px, 9vh, 100px) 0 clamp(48px, 8vh, 80px); }
+.qhead__back { display: block; width: max-content; margin-bottom: 28px; font: 500 14px var(--sans); color: var(--d-dim); text-decoration: none; transition: color .2s; }
+.qhead__back:hover { color: var(--blue-hi); }
+.qhead__title { font-size: var(--t-h1); line-height: 1.05; max-width: 22ch; margin: 14px 0 20px; letter-spacing: -.025em; }
+.qhead__tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 36px; }
+.qtag { font: 500 12px/1.5 var(--mono); padding: 3px 9px; background: rgba(93, 178, 255, .14); box-shadow: inset 0 0 0 1px rgba(93, 178, 255, .3); color: var(--d-ink); }
+.qmeta { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 0; margin: 0; border-top: 1px solid var(--d-line); }
+.qmeta div { padding: 18px 20px 0 0; }
+.qmeta dt { font: 500 12px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--d-faint); margin-bottom: 6px; }
+.qmeta dd { margin: 0; font-size: 17px; color: var(--d-ink); }
+
+.qbody { padding: clamp(56px, 9vh, 96px) 0 24px; }
+.qbody__wrap { display: grid; gap: 48px; }
+.qprose { max-width: 720px; }
+.qprose h2 { font-size: var(--t-h3); line-height: 1.15; margin: 56px 0 16px; }
+.qprose > h2:first-child { margin-top: 0; }
+.qprose p { font-size: 19px; line-height: 1.7; margin-bottom: 20px; }
+.qprose p strong { font-weight: 700; color: var(--blue-deep); }
+.qprose a:not(.btn) { color: var(--blue); }
+.qprose ul, .qprose ol { font-size: 19px; line-height: 1.7; padding-left: 22px; margin: 0 0 20px; }
+.qprose li::marker { color: var(--blue); }
+.qquote { margin: 36px 0; padding: 4px 0 4px 26px; border-left: 3px solid var(--blue); box-shadow: -14px 0 30px -20px rgba(21, 133, 232, .8); }
+.qquote p { font: italic 400 clamp(22px, 2.2vw, 28px)/1.45 var(--serif) !important; color: var(--l-ink); margin: 0; }
+
+.qfig { margin: 40px 0; }
+.qprose .qfig { margin: 40px 0; width: min(960px, calc(100vw - 2 * var(--gutter))); }
+.qfig__row { display: grid; gap: 16px; }
+.qfig--2up .qfig__row { grid-template-columns: 1fr 1fr; }
+@media (max-width: 640px) { .qfig--2up .qfig__row { grid-template-columns: 1fr; } }
+.qfig__art { position: relative; aspect-ratio: 16 / 9; overflow: hidden; display: grid; place-items: end start; padding: 14px 16px;
+  background: radial-gradient(90% 120% at 80% 0%, hsla(var(--h), 95%, 62%, .85), transparent 60%), radial-gradient(80% 100% at 0% 100%, hsla(calc(var(--h) + 40), 90%, 60%, .6), transparent 60%), linear-gradient(160deg, hsl(var(--h), 70%, 16%), #070B16); }
+.qfig--2up .qfig__art { aspect-ratio: 4 / 3; }
+.qfig__art::after { content: ""; position: absolute; inset: 0; opacity: .18; mix-blend-mode: overlay; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='.5'/></svg>"); }
+.qfig__art span { position: relative; z-index: 1; font: 500 11px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: rgba(255, 255, 255, .78); }
+.qfig__art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.qfig figcaption { margin-top: 12px; max-width: 720px; font: italic 400 16px/1.5 var(--serif); color: var(--l-dim); }
+
+.qdraft { max-width: 640px; padding: 32px; background: var(--l-card); display: grid; gap: 16px; justify-items: start; }
+.qdraft p { font-size: 19px; margin: 0; }
+.qdraft p a { color: var(--blue); }
+
+.qnext-wrap { padding: 32px 0 clamp(72px, 10vh, 110px); }
+.qnext { position: relative; display: grid; gap: 10px; padding: 32px 90px 32px 32px; background: var(--l-card); color: var(--l-ink); text-decoration: none; }
+.qnext__title { font: 700 var(--t-h3)/1.15 var(--serif); max-width: 30ch; }
+.qnext__go { position: absolute; right: 28px; top: 50%; translate: 0 -50%; width: 48px; height: 48px; display: grid; place-items: center; background: var(--blue); color: #fff; font-size: 20px; box-shadow: 0 0 24px rgba(21, 133, 232, .55); transition: transform .4s var(--ease); }
+.qnext:hover .qnext__go { transform: translateX(4px); }

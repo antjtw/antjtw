@@ -2,97 +2,84 @@
 <html lang="en-GB">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Allowing Trusts and Hospitals to report COVID-19 test results &mdash; Ant White</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Allowing Trusts and Hospitals to report COVID-19 test results · Ant White</title>
   <meta name="robots" content="noindex">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta name="theme-color" content="#05070D">
   <script>
-    // Inline so we set the theme before any paint to avoid flash
+    /* Lock before first paint unless already unlocked (see the gate in js/site.js) */
     (function () {
+      var ok = false;
       try {
-        var t = localStorage.getItem('aw_theme');
-        if (t === 'dark' || t === 'light') {
-          document.documentElement.setAttribute('data-theme', t);
-        }
+        ok = sessionStorage.getItem('aw_auth') === 'unlocked';
+        if (!ok) { var r = JSON.parse(localStorage.getItem('aw_auth') || 'null'); ok = !!(r && r.value === 'unlocked' && r.expires > Date.now()); }
       } catch (e) {}
+      if (!ok) document.documentElement.classList.add('is-locked');
     })();
   </script>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
-  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="preload" href="../fonts/Copernicus-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/Copernicus-Book.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap">
+  <link rel="stylesheet" href="../css/site.css">
 </head>
-<body data-protected="true" data-auth-path="../index.html" data-base="../">
-
-  <header data-include="header"></header>
+<body data-page="main" data-base="../">
+  <a class="skip" href="#main">Skip to content</a>
+  <div data-nav></div>
 
   <main id="main">
-    <article class="case-page">
-      <div class="wrapper">
-        <div class="case-page__chips">
-          <span class="chip chip--primary">Interaction Design</span>
-          <span class="chip">GOV.UK Prototyping Tool</span>
-          <span class="chip">GOV.UK</span>
-        </div>
+    <header class="band--dark qhead">
+      <div class="wrap">
+        <a class="qhead__back" href="../main-quests.html">← All main quests</a>
+        <span class="eyebrow">Main quest · government · Complete</span>
+        <h1 class="qhead__title">Allowing Trusts and Hospitals to report COVID-19 test results</h1>
+        <div class="qhead__tags"><span class="qtag">Interaction Design</span><span class="qtag">GOV.UK Prototyping Tool</span><span class="qtag">GOV.UK</span></div>
+        <dl class="qmeta"><div><dt>Role</dt><dd>Senior Interaction Designer</dd></div><div><dt>Team</dt><dd>Elective Care Test & Trace, via Accenture</dd></div><div><dt>Duration</dt><dd>Jun 2022 – Nov 2022</dd></div><div><dt>Impact</dt><dd>80% reduction in average reporting times across NHS Trusts</dd></div></dl>
+      </div>
+    </header>
 
-        <h1>Allowing Trusts and Hospitals to report COVID-19 test results</h1>
-
-        <div class="case-page__hero-img">
-          <!-- Drop hero image at ../images/govuk-covid-hero.png -->
-        </div>
-        <p class="case-page__caption">The final bulk upload flow before service decommission (reimagined with 2025 GOV.UK UI). Content design by Fergus Alexander, interaction design and prototype by me.</p>
-
-        <dl class="case-page__meta">
-          <div>
-            <dt>Role</dt>
-            <dd>Senior Interaction Designer</dd>
-          </div>
-          <div>
-            <dt>Team</dt>
-            <dd>Elective Care Test & Trace, via Accenture</dd>
-          </div>
-          <div>
-            <dt>Duration</dt>
-            <dd>Jun 2022 – Nov 2022</dd>
-          </div>
-          <div>
-            <dt>Impact</dt>
-            <dd>80% reduction in average reporting times across NHS Trusts</dd>
-          </div>
-        </dl>
-
-        <div class="case-page__body">
-
-          <p class="case-page__lead-in">The situation</p>
-          <p>NHS Trusts and hospitals needed to report COVID-19 test results to central government, but the existing process was manual, slow, and inconsistent. During an active pandemic, every hour of delay between a result landing and the data reaching public health teams was a direct cost to the response. The Elective Care Test &amp; Trace team commissioned a service redesign as part of the wider GOV.UK programme.</p>
-
-          <p class="case-page__lead-in">What I did</p>
+    <article class="band--light qbody" style="--hue:190">
+      <div class="wrap qbody__wrap">
+        <figure class="qfig" data-reveal><div class="qfig__row"><div class="qfig__art" style="--h:190"><span>Screens shared on request</span></div></div><figcaption>The final bulk upload flow before service decommission (reimagined with 2025 GOV.UK UI). Content design by Fergus Alexander, interaction design and prototype by me.</figcaption></figure>
+        <div class="qprose">
+          <h2 data-reveal>The situation</h2>
+          <p>NHS Trusts and hospitals needed to report COVID-19 test results to central government, but the existing process was manual, slow, and inconsistent. During an active pandemic, every hour of delay between a result landing and the data reaching public health teams was a direct cost to the response. The Elective Care Test & Trace team commissioned a service redesign as part of the wider GOV.UK programme.</p>
+          <h2 data-reveal>What I did</h2>
           <p>I joined as Senior Interaction Designer, working alongside content designers, service designers, policy and delivery leads. My focus was rapid, accessible prototyping using the GOV.UK Prototyping Tool, and iterative usability testing against real NHS staff. The work spanned individual-patient flows and a bulk-upload route for higher-volume Trusts.</p>
-
-          <p>I extended the GDS Design System where the standard patterns didn&rsquo;t quite fit clinical workflows, and contributed those extensions back upstream so the next team to need them wouldn&rsquo;t have to rebuild. Everything had to meet GDS accessibility standards, which is a non-negotiable bar in government service design.</p>
-
-          <!-- IMAGE: GOV.UK COVID reporting flow screens, ideally the bulk upload + individual flow side by side. Drop at ../images/govuk-covid-flows.png (16:9). -->
-          <div class="case-page__image">
-            <div class="placeholder"></div>
-          </div>
-          <p class="case-page__caption">The bulk upload and individual-patient reporting flows. Content design by Fergus Alexander, interaction design and prototype by me.</p>
-
-          <p class="case-page__lead-in">The result</p>
-          <p>The redesigned flows cut average reporting times by 80% across the participating Trusts. The service was decommissioned in line with the wider pandemic response winding down; the design patterns we&rsquo;d shipped back to GDS persisted past the service itself, which is the right kind of legacy for a piece of government work.</p>
-
-          <div class="case-page__next">
-            <p>Next case study</p>
-            <a href="sky-broadband.html">Enabling Sky Broadband users to check their service &rarr;</a>
-          </div>
-
+          <p>I extended the GDS Design System where the standard patterns didn’t quite fit clinical workflows, and contributed those extensions back upstream so the next team to need them wouldn’t have to rebuild. Everything had to meet GDS accessibility standards, which is a non-negotiable bar in government service design.</p>
+          <figure class="qfig" data-reveal><div class="qfig__row"><div class="qfig__art" style="--h:190"><span>Screens shared on request</span></div></div><figcaption>The bulk upload and individual-patient reporting flows. Content design by Fergus Alexander, interaction design and prototype by me.</figcaption></figure>
+          <h2 data-reveal>The result</h2>
+          <p>The redesigned flows cut average reporting times by 80% across the participating Trusts. The service was decommissioned in line with the wider pandemic response winding down; the design patterns we’d shipped back to GDS persisted past the service itself, which is the right kind of legacy for a piece of government work.</p>
         </div>
       </div>
     </article>
+
+    <section class="band--light qnext-wrap">
+      <div class="wrap">
+        <a class="qnext glow-card" href="ee-data-plans.html" data-reveal>
+          <span class="eyebrow">Next · Main quest</span>
+          <span class="qnext__title">Simplifying data plan selection</span>
+          <span class="qnext__go" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
   </main>
 
-  <footer data-include="footer"></footer>
+  <section class="band--dark band--quiet">
+    <div class="wrap cta">
+      <span class="eyebrow">Want the full story?</span>
+      <h2 class="cta__title">Ask for the deep cut</h2>
+      <p>The NDA bits are best told in person. Happy to walk you through this one.</p>
+      <a class="btn" href="../contact.html">Get in touch <span class="btn__arrow" aria-hidden="true">→</span></a>
+    </div>
+    <div data-footer></div>
+  </section>
 
-  <script src="../js/includes.js"></script>
-    <script src="../js/theme.js"></script>
-  <script src="../js/auth.js"></script>
+  <script src="../vendor/gsap.min.js"></script>
+  <script src="../vendor/ScrollTrigger.min.js"></script>
+  <script src="../vendor/lenis.min.js"></script>
+  <script src="../js/data.js"></script>
+  <script src="../js/site.js"></script>
 </body>
 </html>

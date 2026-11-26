@@ -2,97 +2,85 @@
 <html lang="en-GB">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Building a brand new TTRPG using player insights &mdash; Ant White</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Building a brand new TTRPG using player insights · Ant White</title>
   <meta name="robots" content="noindex">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta name="theme-color" content="#05070D">
   <script>
-    // Inline so we set the theme before any paint to avoid flash
+    /* Lock before first paint unless already unlocked (see the gate in js/site.js) */
     (function () {
+      var ok = false;
       try {
-        var t = localStorage.getItem('aw_theme');
-        if (t === 'dark' || t === 'light') {
-          document.documentElement.setAttribute('data-theme', t);
-        }
+        ok = sessionStorage.getItem('aw_auth') === 'unlocked';
+        if (!ok) { var r = JSON.parse(localStorage.getItem('aw_auth') || 'null'); ok = !!(r && r.value === 'unlocked' && r.expires > Date.now()); }
       } catch (e) {}
+      if (!ok) document.documentElement.classList.add('is-locked');
     })();
   </script>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
-  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="preload" href="../fonts/Copernicus-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/Copernicus-Book.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap">
+  <link rel="stylesheet" href="../css/site.css">
 </head>
-<body data-protected="true" data-auth-path="../index.html" data-base="../">
-
-  <header data-include="header"></header>
+<body data-page="side" data-base="../">
+  <a class="skip" href="#main">Skip to content</a>
+  <div data-nav></div>
 
   <main id="main">
-    <article class="case-page">
-      <div class="wrapper">
-        <div class="case-page__chips">
-          <span class="chip chip--primary">Game Design</span>
-          <span class="chip">MTFBWY RPG</span>
-        </div>
+    <header class="band--dark qhead">
+      <div class="wrap">
+        <a class="qhead__back" href="../side-quests.html">← All side quests</a>
+        <span class="eyebrow">Side quest · tabletop games · Complete</span>
+        <h1 class="qhead__title">Building a brand new TTRPG using player insights</h1>
+        <div class="qhead__tags"><span class="qtag">Game Design</span><span class="qtag">MTFBWY RPG</span></div>
+        <dl class="qmeta"><div><dt>Role</dt><dd>Designer (personal project)</dd></div><div><dt>Team</dt><dd>Solo, with developer collaborators</dd></div><div><dt>Duration</dt><dd>Ongoing</dd></div><div><dt>Impact</dt><dd>Designing the rules, tools and digital platform from scratch</dd></div></dl>
+      </div>
+    </header>
 
-        <h1>Building a brand new TTRPG using player insights</h1>
-
-        <div class="case-page__hero-img">
-          <!-- Drop hero image at ../images/mtfbwy-rpg-hero.png -->
-        </div>
-        <p class="case-page__caption">A sneak peek at the ongoing virtual tabletop sign-up experience, plus the character sheet PDF that players will use during the game. All design by me.</p>
-
-        <dl class="case-page__meta">
-          <div>
-            <dt>Role</dt>
-            <dd>Designer (personal project)</dd>
-          </div>
-          <div>
-            <dt>Team</dt>
-            <dd>Solo, with developer collaborators</dd>
-          </div>
-          <div>
-            <dt>Duration</dt>
-            <dd>Ongoing</dd>
-          </div>
-          <div>
-            <dt>Impact</dt>
-            <dd>Designing the rules, tools and digital platform from scratch</dd>
-          </div>
-        </dl>
-
-        <div class="case-page__body">
-
-          <p class="case-page__lead-in">Why this is here</p>
-          <p>This is a personal project, not a client one. It&rsquo;s on the portfolio because building a tabletop role-playing game from scratch turns out to be a remarkably good test of every skill I claim to have in the day job: systems thinking, iterative design, information architecture, accessibility, and the discipline of testing with real users.</p>
-
-          <p class="case-page__lead-in">What it is</p>
-          <p>MTFBWY is a Star Wars-inspired TTRPG I&rsquo;ve been designing in my spare time. The scope spans physical and digital: the rulebook, character sheets, GM tools, and a virtual tabletop platform I&rsquo;m prototyping with developer friends so groups can play remotely. Everything has to work for the player at the table, which means the rules system, the UI of the character sheet, and the digital tooling are all parts of one experience.</p>
-
-          <!-- IMAGE: sign-up flow + character sheet + rulebook spread. Drop at ../images/mtfbwy-overview.png (16:9). -->
-          <div class="case-page__image">
-            <div class="placeholder"></div>
-          </div>
-          <p class="case-page__caption">The virtual tabletop sign-up experience, character sheet PDF, and rulebook layout. All design by me.</p>
-
-          <p class="case-page__lead-in">How I work on it</p>
-          <p>Weekly playtests with real players. Iteration on rules, UI, and storytelling flow based on what actually happens at the table, not what I think should happen. The mechanics, the visual language, and the digital tooling have all been substantially rewritten more than once because real play surfaced friction the design didn&rsquo;t anticipate. The discipline is identical to product UX: ship something, watch real users break it, fix what matters, ignore what doesn&rsquo;t.</p>
-
-          <p class="case-page__lead-in">Why I&rsquo;m showing it</p>
-          <p>Two reasons. First: it&rsquo;s the clearest demonstration I have of systems thinking. Designing a game is designing rules, then designing the interfaces to those rules, then designing how players learn the rules from the interfaces: all the way down. Second: it&rsquo;s a reminder that the best designers are also users of the things they make. Sitting at a table watching someone struggle to find the right rule on the right page is the most direct UX feedback I get all week.</p>
-
-          <div class="case-page__next">
-            <p>Next shorter study</p>
-            <a href="sky-corporate-pitch.html">Sky Corporate Pitch &rarr;</a>
-          </div>
-
+    <article class="band--light qbody" style="--hue:250">
+      <div class="wrap qbody__wrap">
+        <figure class="qfig" data-reveal><div class="qfig__row"><div class="qfig__art" style="--h:250"><span>Screens shared on request</span></div></div><figcaption>A sneak peek at the ongoing virtual tabletop sign-up experience, plus the character sheet PDF that players will use during the game. All design by me.</figcaption></figure>
+        <div class="qprose">
+          <h2 data-reveal>Why this is here</h2>
+          <p>This is a personal project, not a client one. It’s on the portfolio because building a tabletop role-playing game from scratch turns out to be a remarkably good test of every skill I claim to have in the day job: systems thinking, iterative design, information architecture, accessibility, and the discipline of testing with real users.</p>
+          <h2 data-reveal>What it is</h2>
+          <p>MTFBWY is a Star Wars-inspired TTRPG I’ve been designing in my spare time. The scope spans physical and digital: the rulebook, character sheets, GM tools, and a virtual tabletop platform I’m prototyping with developer friends so groups can play remotely. Everything has to work for the player at the table, which means the rules system, the UI of the character sheet, and the digital tooling are all parts of one experience.</p>
+          <figure class="qfig" data-reveal><div class="qfig__row"><div class="qfig__art" style="--h:250"><span>Screens shared on request</span></div></div><figcaption>The virtual tabletop sign-up experience, character sheet PDF, and rulebook layout. All design by me.</figcaption></figure>
+          <h2 data-reveal>How I work on it</h2>
+          <p>Weekly playtests with real players. Iteration on rules, UI, and storytelling flow based on what actually happens at the table, not what I think should happen. The mechanics, the visual language, and the digital tooling have all been substantially rewritten more than once because real play surfaced friction the design didn’t anticipate. The discipline is identical to product UX: ship something, watch real users break it, fix what matters, ignore what doesn’t.</p>
+          <h2 data-reveal>Why I’m showing it</h2>
+          <p>Two reasons. First: it’s the clearest demonstration I have of systems thinking. Designing a game is designing rules, then designing the interfaces to those rules, then designing how players learn the rules from the interfaces: all the way down. Second: it’s a reminder that the best designers are also users of the things they make. Sitting at a table watching someone struggle to find the right rule on the right page is the most direct UX feedback I get all week.</p>
         </div>
       </div>
     </article>
+
+    <section class="band--light qnext-wrap">
+      <div class="wrap">
+        <a class="qnext glow-card" href="nhs-apc.html" data-reveal>
+          <span class="eyebrow">Next · Main quest</span>
+          <span class="qnext__title">Replacing e-RS: helping the NHS see secondary care patients sooner</span>
+          <span class="qnext__go" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
   </main>
 
-  <footer data-include="footer"></footer>
+  <section class="band--dark band--quiet">
+    <div class="wrap cta">
+      <span class="eyebrow">Want the full story?</span>
+      <h2 class="cta__title">Ask for the deep cut</h2>
+      <p>The NDA bits are best told in person. Happy to walk you through this one.</p>
+      <a class="btn" href="../contact.html">Get in touch <span class="btn__arrow" aria-hidden="true">→</span></a>
+    </div>
+    <div data-footer></div>
+  </section>
 
-  <script src="../js/includes.js"></script>
-    <script src="../js/theme.js"></script>
-  <script src="../js/auth.js"></script>
+  <script src="../vendor/gsap.min.js"></script>
+  <script src="../vendor/ScrollTrigger.min.js"></script>
+  <script src="../vendor/lenis.min.js"></script>
+  <script src="../js/data.js"></script>
+  <script src="../js/site.js"></script>
 </body>
 </html>

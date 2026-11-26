@@ -2,96 +2,84 @@
 <html lang="en-GB">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Enabling Sky Broadband users to check their service &mdash; Ant White</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Enabling Sky Broadband users to check their service · Ant White</title>
   <meta name="robots" content="noindex">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta name="theme-color" content="#05070D">
   <script>
-    // Inline so we set the theme before any paint to avoid flash
+    /* Lock before first paint unless already unlocked (see the gate in js/site.js) */
     (function () {
+      var ok = false;
       try {
-        var t = localStorage.getItem('aw_theme');
-        if (t === 'dark' || t === 'light') {
-          document.documentElement.setAttribute('data-theme', t);
-        }
+        ok = sessionStorage.getItem('aw_auth') === 'unlocked';
+        if (!ok) { var r = JSON.parse(localStorage.getItem('aw_auth') || 'null'); ok = !!(r && r.value === 'unlocked' && r.expires > Date.now()); }
       } catch (e) {}
+      if (!ok) document.documentElement.classList.add('is-locked');
     })();
   </script>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
-  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="preload" href="../fonts/Copernicus-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/Copernicus-Book.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap">
+  <link rel="stylesheet" href="../css/site.css">
 </head>
-<body data-protected="true" data-auth-path="../index.html" data-base="../">
-
-  <header data-include="header"></header>
+<body data-page="main" data-base="../">
+  <a class="skip" href="#main">Skip to content</a>
+  <div data-nav></div>
 
   <main id="main">
-    <article class="case-page">
-      <div class="wrapper">
-        <div class="case-page__chips">
-          <span class="chip chip--primary">UI Design</span>
-          <span class="chip">Sky</span>
-        </div>
+    <header class="band--dark qhead">
+      <div class="wrap">
+        <a class="qhead__back" href="../main-quests.html">← All main quests</a>
+        <span class="eyebrow">Main quest · media · Complete</span>
+        <h1 class="qhead__title">Enabling Sky Broadband users to check their service</h1>
+        <div class="qhead__tags"><span class="qtag">UI Design</span><span class="qtag">Sky</span></div>
+        <dl class="qmeta"><div><dt>Role</dt><dd>UI Designer</dd></div><div><dt>Team</dt><dd>Broadband & Talk Hub team</dd></div><div><dt>Duration</dt><dd>May 2018 – Nov 2019</dd></div><div><dt>Impact</dt><dd>Modernised the experience; contributed to Sky's Polaris design system</dd></div></dl>
+      </div>
+    </header>
 
-        <h1>Enabling Sky Broadband users to check their service</h1>
-
-        <div class="case-page__hero-img">
-          <!-- Drop hero image at ../images/sky-broadband-hero.png -->
-        </div>
-        <p class="case-page__caption">Visuals from the dev-ready Broadband & Talk experience. UX design by Francesco Martino, UI design by me.</p>
-
-        <dl class="case-page__meta">
-          <div>
-            <dt>Role</dt>
-            <dd>UI Designer</dd>
-          </div>
-          <div>
-            <dt>Team</dt>
-            <dd>Broadband & Talk Hub team</dd>
-          </div>
-          <div>
-            <dt>Duration</dt>
-            <dd>May 2018 – Nov 2019</dd>
-          </div>
-          <div>
-            <dt>Impact</dt>
-            <dd>Modernised the experience; contributed to Sky's Polaris design system</dd>
-          </div>
-        </dl>
-
-        <div class="case-page__body">
-
-          <p class="case-page__lead-in">The situation</p>
-          <p>Sky&rsquo;s Broadband &amp; Talk Hub on My Account was the page customers used to check their connection, troubleshoot issues, and manage their service. It was tired. The information architecture didn&rsquo;t prioritise the tasks customers actually came to do, and the visual treatment didn&rsquo;t fit the new My Account design language. The brief was to modernise it and align it with the wider system.</p>
-
-          <p class="case-page__lead-in">What I did</p>
-          <p>I worked as UI Designer alongside UX designer Francesco Martino. My role bridged UX and UI, contributing to design sprints, facilitating workshops, and turning user research insights into actionable design decisions. I partnered with contact-centre teams to surface the real-world pain points that weren&rsquo;t showing up in the analytics, then restructured the information architecture around the tasks customers asked for most: troubleshooting and billing.</p>
-
-          <p>Alongside the project work, I contributed to Sky&rsquo;s Polaris design system, specifically the components that the Broadband &amp; Talk experience helped to refine and standardise.</p>
-
-          <!-- IMAGE: Sky Broadband & Talk hub final design, ideally desktop view. Drop at ../images/sky-broadband-final.png (16:9). -->
-          <div class="case-page__image">
-            <div class="placeholder"></div>
-          </div>
-          <p class="case-page__caption">The dev-ready Broadband &amp; Talk experience. UX design by Francesco Martino, UI design by me.</p>
-
-          <p class="case-page__lead-in">The result</p>
-          <p>The redesigned experience shipped as dev-ready. It simplified complex broadband data into something a non-technical customer could read and act on, and the patterns we proved fed back into Polaris for the rest of My Account to use. This was earlier in my career and the work that taught me design systems aren&rsquo;t a side artefact: they&rsquo;re the thing that determines whether one team&rsquo;s craft becomes the whole org&rsquo;s baseline.</p>
-
-          <div class="case-page__next">
-            <p>Next case study</p>
-            <a href="nhs-apc.html">Replacing e-RS: helping the NHS see secondary care patients sooner &rarr;</a>
-          </div>
-
+    <article class="band--light qbody" style="--hue:220">
+      <div class="wrap qbody__wrap">
+        <figure class="qfig" data-reveal><div class="qfig__row"><div class="qfig__art" style="--h:220"><span>Screens shared on request</span></div></div><figcaption>Visuals from the dev-ready Broadband & Talk experience. UX design by Francesco Martino, UI design by me.</figcaption></figure>
+        <div class="qprose">
+          <h2 data-reveal>The situation</h2>
+          <p>Sky’s Broadband & Talk Hub on My Account was the page customers used to check their connection, troubleshoot issues, and manage their service. It was tired. The information architecture didn’t prioritise the tasks customers actually came to do, and the visual treatment didn’t fit the new My Account design language. The brief was to modernise it and align it with the wider system.</p>
+          <h2 data-reveal>What I did</h2>
+          <p>I worked as UI Designer alongside UX designer Francesco Martino. My role bridged UX and UI, contributing to design sprints, facilitating workshops, and turning user research insights into actionable design decisions. I partnered with contact-centre teams to surface the real-world pain points that weren’t showing up in the analytics, then restructured the information architecture around the tasks customers asked for most: troubleshooting and billing.</p>
+          <p>Alongside the project work, I contributed to Sky’s Polaris design system, specifically the components that the Broadband & Talk experience helped to refine and standardise.</p>
+          <figure class="qfig" data-reveal><div class="qfig__row"><div class="qfig__art" style="--h:220"><span>Screens shared on request</span></div></div><figcaption>The dev-ready Broadband & Talk experience. UX design by Francesco Martino, UI design by me.</figcaption></figure>
+          <h2 data-reveal>The result</h2>
+          <p>The redesigned experience shipped as dev-ready. It simplified complex broadband data into something a non-technical customer could read and act on, and the patterns we proved fed back into Polaris for the rest of My Account to use. This was earlier in my career and the work that taught me design systems aren’t a side artefact: they’re the thing that determines whether one team’s craft becomes the whole org’s baseline.</p>
         </div>
       </div>
     </article>
+
+    <section class="band--light qnext-wrap">
+      <div class="wrap">
+        <a class="qnext glow-card" href="make-shift-hackathon.html" data-reveal>
+          <span class="eyebrow">Next · Main quest</span>
+          <span class="qnext__title">Make/Shift: a national hackathon</span>
+          <span class="qnext__go" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
   </main>
 
-  <footer data-include="footer"></footer>
+  <section class="band--dark band--quiet">
+    <div class="wrap cta">
+      <span class="eyebrow">Want the full story?</span>
+      <h2 class="cta__title">Ask for the deep cut</h2>
+      <p>The NDA bits are best told in person. Happy to walk you through this one.</p>
+      <a class="btn" href="../contact.html">Get in touch <span class="btn__arrow" aria-hidden="true">→</span></a>
+    </div>
+    <div data-footer></div>
+  </section>
 
-  <script src="../js/includes.js"></script>
-    <script src="../js/theme.js"></script>
-  <script src="../js/auth.js"></script>
+  <script src="../vendor/gsap.min.js"></script>
+  <script src="../vendor/ScrollTrigger.min.js"></script>
+  <script src="../vendor/lenis.min.js"></script>
+  <script src="../js/data.js"></script>
+  <script src="../js/site.js"></script>
 </body>
 </html>

@@ -2,126 +2,96 @@
 <html lang="en-GB">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Increasing additional product sales for EE&rsquo;s digital store &mdash; Ant White</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Increasing additional product sales for EE’s digital store · Ant White</title>
   <meta name="robots" content="noindex">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta name="theme-color" content="#05070D">
   <script>
-    // Inline so we set the theme before any paint to avoid flash
+    /* Lock before first paint unless already unlocked (see the gate in js/site.js) */
     (function () {
+      var ok = false;
       try {
-        var t = localStorage.getItem('aw_theme');
-        if (t === 'dark' || t === 'light') {
-          document.documentElement.setAttribute('data-theme', t);
-        }
+        ok = sessionStorage.getItem('aw_auth') === 'unlocked';
+        if (!ok) { var r = JSON.parse(localStorage.getItem('aw_auth') || 'null'); ok = !!(r && r.value === 'unlocked' && r.expires > Date.now()); }
       } catch (e) {}
+      if (!ok) document.documentElement.classList.add('is-locked');
     })();
   </script>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
-  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="preload" href="../fonts/Copernicus-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/Copernicus-Book.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap">
+  <link rel="stylesheet" href="../css/site.css">
 </head>
-<body data-protected="true" data-auth-path="../index.html" data-base="../">
-
-  <header data-include="header"></header>
+<body data-page="main" data-base="../">
+  <a class="skip" href="#main">Skip to content</a>
+  <div data-nav></div>
 
   <main id="main">
-    <article class="case-page">
-      <div class="wrapper">
-        <div class="case-page__chips">
-          <span class="chip chip--primary">Product Design</span>
-          <span class="chip">EE Consumer</span>
-        </div>
+    <header class="band--dark qhead">
+      <div class="wrap">
+        <a class="qhead__back" href="../main-quests.html">← All main quests</a>
+        <span class="eyebrow">Main quest · telecoms · Complete</span>
+        <h1 class="qhead__title">Increasing additional product sales for EE’s digital store</h1>
+        <div class="qhead__tags"><span class="qtag">Product Design</span><span class="qtag">EE Consumer</span></div>
+        <dl class="qmeta"><div><dt>Role</dt><dd>Lead Product Designer</dd></div><div><dt>Team</dt><dd>Discovery & delivery squads</dd></div><div><dt>Duration</dt><dd>Nov 2019 – Jun 2022</dd></div><div><dt>Impact</dt><dd>31% traffic / 19% conversion / +0.7% channel share</dd></div></dl>
+      </div>
+    </header>
 
-        <h1>Increasing additional product sales for EE&rsquo;s digital store</h1>
-
-        <div class="case-page__hero-img">
-          <!-- Drop hero image at ../images/ee-add-mobile-hero.png -->
-        </div>
-        <p class="case-page__caption">The latest release of Add Mobile. Content design by Emma Paines, product design by me.</p>
-
-        <dl class="case-page__meta">
-          <div>
-            <dt>Role</dt>
-            <dd>Lead Product Designer</dd>
-          </div>
-          <div>
-            <dt>Team</dt>
-            <dd>Discovery & delivery squads</dd>
-          </div>
-          <div>
-            <dt>Duration</dt>
-            <dd>Nov 2019 – Jun 2022</dd>
-          </div>
-          <div>
-            <dt>Impact</dt>
-            <dd>31% traffic / 19% conversion / +0.7% channel share</dd>
-          </div>
-        </dl>
-
-        <div class="case-page__body">
-
-          <p class="case-page__lead-in">The situation</p>
+    <article class="band--light qbody" style="--hue:228">
+      <div class="wrap qbody__wrap">
+        <figure class="qfig" data-reveal><div class="qfig__row"><div class="qfig__art" style="--h:228"><span>Screens shared on request</span></div></div><figcaption>The latest release of Add Mobile. Content design by Emma Paines, product design by me.</figcaption></figure>
+        <div class="qprose">
+          <h2 data-reveal>The situation</h2>
           <p>EE was losing market share in auxiliary devices: the tablets, smart watches and accessories customers buy alongside a phone contract. Fewer than 8% of existing customers were taking an additional line, and the business needed that number to move. The Add Mobile journey, the way customers added a new line to an existing account, was the obvious place to start.</p>
-
-          <p class="case-page__lead-in">Discovery: why v5</p>
+          <h2 data-reveal>Discovery: why v5</h2>
           <p>I joined the discovery as Lead Product Designer and spent the first six weeks getting a clear-eyed view of where the journey was failing. I dove into Adobe Analytics to examine quantitative data (drop-off points, dwell times), then audited the current experience through usability testing and ran customer interviews to understand the behaviours behind the numbers.</p>
-
-          <!-- IMAGE: discovery artefacts — analytics snapshots, sticky-note clusters, usability findings. Drop at ../images/ee-add-mobile-discovery.png (16:9). Pulled from slide 7 "Discovery — Why v5". -->
-          <div class="case-page__image">
-            <div class="placeholder"></div>
-          </div>
-          <p class="case-page__caption">Discovery artefacts: analytics deep-dives, sticky-note synthesis from research, and an audit of the v4 experience.</p>
-
+          <figure class="qfig" data-reveal><div class="qfig__row"><div class="qfig__art" style="--h:228"><span>Screens shared on request</span></div></div><figcaption>Discovery artefacts: analytics deep-dives, sticky-note synthesis from research, and an audit of the v4 experience.</figcaption></figure>
           <p>Six themes came back consistently. The site was too slow. Customers felt a lack of loyalty recognition. There was no personalisation on the Additional Line journey. They were confused between "Add a line" and "Upgrade". They didn't understand the term "Additional Line" itself. And, most critically for the business case, many customers didn't know they were even eligible for an additional line.</p>
-
-          <p class="case-page__lead-in">The plan of action</p>
+          <h2 data-reveal>The plan of action</h2>
           <p>Working with a discovery team of analysts, content designers and product managers, we turned the findings into clearly defined user needs. From there, I identified opportunities for improvement and developed testable hypotheses, so we could validate the approach with users before going wide on ideation. The intent was to move from "we crazy 8'd a solution" to "we're shipping a solution we've already evidenced." That distinction is what separates teams that ship and teams that ship things that work.</p>
-
-          <p class="case-page__lead-in">Validating ideas</p>
+          <h2 data-reveal>Validating ideas</h2>
           <p>I built on the discovery themes by focusing on three strategic pillars: navigation, findability, and the purchase experience. We created prototypes for each and ran moderated usability testing before any of it touched a developer.</p>
-
-          <!-- IMAGES: two prototype screens side by side. Left = small phone mock of new navigation. Right = wider laptop screen of the landing page. Drop at ../images/ee-add-mobile-prototypes-1.png and -prototypes-2.png. Pulled from slides 10-12 "Navigation / Findability / Purchase experience". -->
-          <div class="case-page__images-2up">
-            <div class="placeholder"></div>
-            <div class="placeholder"></div>
-          </div>
-          <p class="case-page__caption">Two of the validated prototypes. Left: the new navigation that separated Add, Upgrade and Accessories. Right: the task-based landing page that helped customers distinguish their journey.</p>
-
+          <figure class="qfig qfig--2up" data-reveal><div class="qfig__row"><div class="qfig__art" style="--h:228"><span>Screens shared on request</span></div><div class="qfig__art" style="--h:242"><span>Screens shared on request</span></div></div><figcaption>Two of the validated prototypes. Left: the new navigation that separated Add, Upgrade and Accessories. Right: the task-based landing page that helped customers distinguish their journey.</figcaption></figure>
           <p>For navigation, we separated Add, Upgrade and Accessory journeys, releasing "Additional Line" as a control and improved version B applying EE's design system, Loop. For findability, we created a task-based landing page that helped customers self-identify before they hit configuration. For purchase, we surfaced EE's loyalty offerings earlier, simplified language, and added tenure indicators to build trust at the point of decision.</p>
-
-          <p class="case-page__lead-in">The methodology that mattered</p>
-          <div class="case-page__pull">
-            <p>We methodically tested each hypothesis through rigorous multi-variant testing, carefully measuring the impact of every design change. This data-driven approach let us validate solutions with real users before full implementation.</p>
-          </div>
+          <h2 data-reveal>The methodology that mattered</h2>
+          <blockquote class="qquote" data-reveal><p>We methodically tested each hypothesis through rigorous multi-variant testing, carefully measuring the impact of every design change. This data-driven approach let us validate solutions with real users before full implementation.</p></blockquote>
           <p>I want to call this out because it's the part of the work I'm most proud of and the part that distinguishes good design from senior design. We didn't ship redesigns and hope. We ran proper experiments. Every change was instrumented, measured, and either kept or killed on evidence.</p>
-
-          <p class="case-page__lead-in">The results</p>
+          <h2 data-reveal>The results</h2>
           <p>The full rollout delivered strong results: <strong>31% traffic uplift</strong>, <strong>19% higher conversion</strong>, a record-breaking <strong>1,800 monthly orders</strong>, and <strong>+0.7% direct channel share</strong>. The last number is the one I'd point a commercial stakeholder at. Channel share moves are slow, hard-won, and reflect customer behaviour shifting at a system level, not just a campaign uplift. Final designs used reusable components from EE's design system, so the patterns we proved became patterns the wider product organisation could reuse.</p>
-
-          <!-- IMAGE: final shipped UI hero shot, ideally the Add Mobile journey across mobile + desktop. Drop at ../images/ee-add-mobile-final.png (16:9). Pulled from slides 13-14 "Purchase experience / Results". -->
-          <div class="case-page__image">
-            <div class="placeholder"></div>
-          </div>
-          <p class="case-page__caption">Final shipped designs. Product design and prototype by me, content design by Emma Paines.</p>
-
-          <p class="case-page__lead-in">What I took from this</p>
+          <figure class="qfig" data-reveal><div class="qfig__row"><div class="qfig__art" style="--h:228"><span>Screens shared on request</span></div></div><figcaption>Final shipped designs. Product design and prototype by me, content design by Emma Paines.</figcaption></figure>
+          <h2 data-reveal>What I took from this</h2>
           <p>The win wasn't the percentage uplift. It was demonstrating to a large, commercially-driven team that careful research and rigorous experimentation produced better business outcomes than ideation-first design. By the end of the engagement, the squad were running their own hypothesis-led tests. That was the durable change.</p>
-
-          <div class="case-page__next">
-            <p>Next case study</p>
-            <a href="ee-data-plans.html">Simplifying data plan selection &rarr;</a>
-          </div>
-
         </div>
       </div>
     </article>
+
+    <section class="band--light qnext-wrap">
+      <div class="wrap">
+        <a class="qnext glow-card" href="govuk-covid.html" data-reveal>
+          <span class="eyebrow">Next · Main quest</span>
+          <span class="qnext__title">Allowing Trusts and Hospitals to report COVID-19 test results</span>
+          <span class="qnext__go" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
   </main>
 
-  <footer data-include="footer"></footer>
+  <section class="band--dark band--quiet">
+    <div class="wrap cta">
+      <span class="eyebrow">Want the full story?</span>
+      <h2 class="cta__title">Ask for the deep cut</h2>
+      <p>The NDA bits are best told in person. Happy to walk you through this one.</p>
+      <a class="btn" href="../contact.html">Get in touch <span class="btn__arrow" aria-hidden="true">→</span></a>
+    </div>
+    <div data-footer></div>
+  </section>
 
-  <script src="../js/includes.js"></script>
-    <script src="../js/theme.js"></script>
-  <script src="../js/auth.js"></script>
+  <script src="../vendor/gsap.min.js"></script>
+  <script src="../vendor/ScrollTrigger.min.js"></script>
+  <script src="../vendor/lenis.min.js"></script>
+  <script src="../js/data.js"></script>
+  <script src="../js/site.js"></script>
 </body>
 </html>
