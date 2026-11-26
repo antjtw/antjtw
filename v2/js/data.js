@@ -6,14 +6,8 @@
 
 window.AW = window.AW || {};
 
-/* Hero: "I lead design through ___." Each word drives the diagram panel. */
-AW.hero = [
-  { word: 'AI',             tab: 'Agents',     scene: 'agents',   cap: 'Agents that turn user needs into prototype specs, with a human signing every one off.' },
-  { word: 'multiplication', tab: 'Teams',      scene: 'teams',    cap: 'One lead, many better designers. Seven reports, two mentees, and counting.' },
-  { word: 'transformation', tab: 'Practice',   scene: 'practice', cap: 'Design practices and systems built from nothing, in places that needed them.' },
-  { word: 'systems',        tab: 'Components', scene: 'systems',  cap: 'Tokens to components to screens: how the pieces fit, drawn at every level.' },
-  { word: 'play',           tab: 'Rules',      scene: 'rules',    cap: 'Rules, then the interfaces to the rules, then how players learn them.' }
-];
+/* Hero: "I lead design through ___." */
+AW.hero = [{ word: 'AI' }, { word: 'multiplication' }, { word: 'transformation' }, { word: 'systems' }, { word: 'play' }];
 
 /* ---------- Quests ----------
    type:     'main' (work) | 'side' (outside work)

@@ -1,6 +1,6 @@
 /* =========================================================
    Ant White v2: behaviour
-   Shared chrome, the hero rotator and diagram panel, quest
+   Shared chrome, the hero rotator and glow orb, quest
    renderers, and motion (GSAP + ScrollTrigger + Lenis, after the
    Big Brain Playlist). Everything still works without them.
    ========================================================= */
@@ -102,40 +102,11 @@
   }
 
   /* ---------------------------------------------------------
-     Hero: rotating word + matching diagram panel
+     Hero: rotating word
   --------------------------------------------------------- */
-  function B(x, y, w, h, label, hot, d) {
-    return '<g class="pop" style="--d:' + (d || 0) + '"><rect class="box' + (hot ? ' box--hot' : '') + '" x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '"/><text class="lbl" x="' + (x + w / 2) + '" y="' + (y + h / 2) + '">' + label + '</text></g>';
-  }
-  function L(d, flow) { return '<path class="' + (flow ? 'flow' : 'wire') + '" d="' + d + '"/>'; }
-  var SCENES = {
-    agents: '<rect class="dash" x="4" y="8" width="312" height="252"/><text class="mono" x="14" y="28">PROTOTYPE KIT</text>' +
-      B(24, 56, 110, 50, 'User need', false, 0) + B(186, 56, 110, 50, 'Agent', true, 1) + B(105, 176, 110, 50, 'Spec page', false, 2) +
-      L('M134 81 H186', true) + L('M241 106 L180 176', true) + L('M105 201 L60 201 L60 106', false) + '<text class="mono" x="70" y="150">HUMAN REVIEW</text>',
-    teams: B(115, 14, 90, 46, 'Lead', true, 0) +
-      L('M160 60 L40 170', true) + L('M160 60 L100 170', true) + L('M160 60 L160 170', true) + L('M160 60 L220 170', true) + L('M160 60 L280 170', true) +
-      B(10, 170, 60, 40, 'UX', false, 1) + B(70, 170, 60, 40, 'UI', false, 2) + B(130, 170, 60, 40, 'Content', false, 3) + B(190, 170, 60, 40, 'Research', false, 4) + B(250, 170, 60, 40, 'Service', false, 5) +
-      '<text class="mono" x="10" y="246">FORCE x 5</text>',
-    practice: B(10, 200, 66, 40, 'Ad hoc', false, 0) + B(86, 150, 66, 90, 'Rituals', false, 1) + B(162, 100, 66, 140, 'System', false, 2) + B(238, 30, 72, 210, 'Practice', true, 3) +
-      L('M43 190 L119 140 L195 90 L274 20', true) + '<text class="mono" x="10" y="30">FROM ZERO</text>',
-    systems: '<text class="mono" x="14" y="22">TOKENS</text><text class="mono" x="118" y="22">COMPONENTS</text><text class="mono" x="232" y="22">SCREENS</text>' +
-      B(10, 40, 80, 34, 'Colour', false, 0) + B(10, 90, 80, 34, 'Type', false, 1) + B(10, 140, 80, 34, 'Space', false, 2) +
-      B(118, 60, 90, 44, 'Button', true, 3) + B(118, 124, 90, 44, 'Card', false, 4) + B(232, 40, 80, 150, 'Screen', false, 5) +
-      L('M90 57 L118 82', true) + L('M90 107 L118 146', true) + L('M90 157 L118 146', false) + L('M208 82 L232 100', true) + L('M208 146 L232 130', true),
-    rules: '<g class="pop" style="--d:0"><path class="box box--hot" d="M70 30 L120 58 L120 114 L70 142 L20 114 L20 58 Z"/><text class="lbl" x="70" y="86" style="font-family:JetBrains Mono">20</text></g>' +
-      B(190, 50, 110, 46, 'Rule', false, 1) + B(190, 150, 110, 46, 'Interface', false, 2) + B(40, 200, 110, 46, 'Player', false, 3) +
-      L('M120 80 L190 73', true) + L('M245 96 L245 150', true) + L('M190 173 L150 210', true) + L('M70 200 L70 142', false) + '<text class="mono" x="14" y="268">WEEKLY PLAYTESTS</text>'
-  };
-
-  var rot = $('[data-rotator]'), panel = $('[data-panel]');
+  var rot = $('[data-rotator]');
   if (rot && AW.hero) {
     rot.innerHTML = AW.hero.map(function (h, i) { return '<span class="rotator__word' + (i === 0 ? ' is-in' : '') + '"' + (i ? ' aria-hidden="true"' : '') + '><span>' + esc(h.word) + '.</span></span>'; }).join('');
-    if (panel) {
-      $('.panel__stage', panel).innerHTML = AW.hero.map(function (h, i) { return '<div class="panel__scene' + (i === 0 ? ' is-in' : '') + '"><svg viewBox="0 0 320 280" role="img" aria-label="' + esc(h.cap) + '">' + SCENES[h.scene] + '</svg></div>'; }).join('');
-      $('.panel__dots', panel).innerHTML = AW.hero.map(function (_, i) { return '<i class="' + (i === 0 ? 'is-on' : '') + '"></i>'; }).join('');
-      $('[data-panel-tab]', panel).textContent = AW.hero[0].tab;
-      $('.panel__cap', panel).textContent = AW.hero[0].cap;
-    }
     var idx = 0;
     setInterval(function () {
       if (paused) return;
@@ -144,14 +115,18 @@
       setTimeout(function () { cur.classList.remove('is-out'); }, 800);
       idx = (idx + 1) % AW.hero.length;
       words[idx].classList.add('is-in'); words[idx].removeAttribute('aria-hidden');
-      if (panel) {
-        $$('.panel__scene', panel).forEach(function (s, i) { s.classList.toggle('is-in', i === idx); });
-        $$('.panel__dots i', panel).forEach(function (d, i) { d.classList.toggle('is-on', i === idx); });
-        $('[data-panel-tab]', panel).textContent = AW.hero[idx].tab;
-        $('.panel__cap', panel).textContent = AW.hero[idx].cap;
-      }
     }, 3200);
   }
+
+  /* Orb drifts gently towards the pointer */
+  var orb = $('[data-orb]');
+  if (orb && fine && !reduced) addEventListener('pointermove', function (e) {
+    var r = orb.getBoundingClientRect();
+    if (r.bottom < 0) return;
+    var dx = (e.clientX - (r.left + r.width / 2)) / innerWidth, dy = (e.clientY - (r.top + r.height / 2)) / innerHeight;
+    orb.style.setProperty('--ox', (dx * 60).toFixed(1) + 'px');
+    orb.style.setProperty('--oy', (dy * 60).toFixed(1) + 'px');
+  }, { passive: true });
 
   /* Split the hero name into letters for the intro */
   $$('[data-split]').forEach(function (el) {
@@ -301,7 +276,7 @@
   if ($('.hero__name .ch')) tl.from('.hero__name .ch', { yPercent: 110, rotate: 6, duration: 1.1, ease: 'expo.out', stagger: .04 });
   if ($('.page-head__title')) tl.from('.page-head__title', { yPercent: 40, opacity: 0, skewY: 3, duration: 1.1, ease: 'expo.out' });
   tl.from('.hero .eyebrow, .hero__line, .hero [data-pause], .hero__lede, .hero__actions, .page-head .eyebrow, .page-head__lede', { opacity: 0, y: 24, duration: 1, ease: 'expo.out', stagger: .07 }, '<.15');
-  if ($('.panel')) tl.from('.panel', { opacity: 0, y: 40, scale: .96, duration: 1.2, ease: 'expo.out' }, '<.1');
+  if (orb) tl.from(orb, { opacity: 0, scale: .6, duration: 1.8, ease: 'expo.out' }, '<');
 
   $$('.section__title, .cta__title').forEach(function (t) { gsap.from(t, { yPercent: 40, opacity: 0, skewY: 3, duration: 1.2, ease: 'expo.out', scrollTrigger: { trigger: t, start: 'top 88%' } }); });
   $$('.section .eyebrow, .section__sub').forEach(function (t) { gsap.from(t, { y: 18, opacity: 0, duration: 1, ease: 'expo.out', scrollTrigger: { trigger: t, start: 'top 92%' } }); });

@@ -100,7 +100,7 @@ p { margin: 0; }
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='.6'/></svg>"); }
 .band--quiet .aurora { opacity: .5; }
 @keyframes grain { 0%,100% { transform: translate(0,0); } 25% { transform: translate(-3%,2%); } 50% { transform: translate(2%,-4%); } 75% { transform: translate(-4%,-1%); } }
-.motion-paused .aurora span, .motion-paused .band--dark::after, .motion-paused .marquee__track, .motion-paused .panel__scene .flow { animation-play-state: paused; }
+.motion-paused .aurora span, .motion-paused .band--dark::after, .motion-paused .marquee__track { animation-play-state: paused; }
 
 /* Cursor dot */
 .cursor { position: fixed; left: 0; top: 0; z-index: 1000; pointer-events: none; display: none; }
@@ -174,29 +174,23 @@ p a, .link { color: var(--blue); text-underline-offset: 3px; }
 [data-split] .ch { display: inline-block; will-change: transform; }
 .split-mask { display: inline-block; overflow: hidden; vertical-align: top; padding: 0 .04em .1em; margin-bottom: -.1em; }
 
-/* Diagram panel */
-.panel { margin: 0; }
-.panel__box { position: relative; aspect-ratio: 1.05; background: rgba(5, 7, 13, .92); padding: 20px; box-shadow: 0 0 0 1px var(--d-line), 0 30px 90px -20px rgba(21, 133, 232, .55); }
-.panel__head { display: flex; justify-content: space-between; font: 600 12px var(--mono); letter-spacing: .08em; text-transform: uppercase; padding-bottom: 10px; border-bottom: 2px solid var(--d-ink); }
-.panel__head span:last-child { color: var(--d-faint); }
-.panel__stage { position: absolute; inset: 64px 20px 36px; }
-.panel__scene { position: absolute; inset: 0; opacity: 0; transition: opacity .5s var(--ease); }
-.panel__scene.is-in { opacity: 1; }
-.panel__scene svg { width: 100%; height: 100%; overflow: visible; }
-.panel__scene .box { fill: #0B1020; stroke: var(--d-ink); stroke-width: 1.5; }
-.panel__scene .box--hot { stroke: var(--blue-hi); filter: drop-shadow(0 0 8px rgba(21, 133, 232, .9)); }
-.panel__scene .lbl { fill: var(--d-ink); font: 600 13px var(--sans); text-anchor: middle; dominant-baseline: middle; }
-.panel__scene .mono { fill: var(--d-ink); font: 600 11px var(--mono); letter-spacing: .06em; }
-.panel__scene .wire { stroke: var(--d-ink); stroke-width: 1.5; fill: none; }
-.panel__scene .dash { stroke: var(--d-ink); stroke-width: 1.2; fill: none; stroke-dasharray: 4 4; }
-.panel__scene .flow { stroke: var(--cyan); stroke-width: 2; fill: none; stroke-dasharray: 6 10; animation: flow 1.2s linear infinite; filter: drop-shadow(0 0 4px var(--cyan)); }
-@keyframes flow { to { stroke-dashoffset: -32; } }
-.panel__scene.is-in .pop { transform-box: fill-box; transform-origin: center; animation: pop .7s var(--spring) both; animation-delay: calc(var(--d, 0) * 110ms); }
-@keyframes pop { from { transform: scale(.5); opacity: 0; } }
-.panel__dots { position: absolute; left: 20px; bottom: 14px; display: flex; gap: 5px; }
-.panel__dots i { width: 10px; height: 4px; background: rgba(242, 245, 251, .3); transition: width .4s var(--ease), background .3s; }
-.panel__dots i.is-on { width: 30px; background: var(--d-ink); box-shadow: 0 0 10px var(--blue-hi); }
-.panel__cap { margin: 18px auto 0; max-width: 380px; text-align: center; font: italic 400 17px/1.5 var(--serif); color: var(--d-dim); min-height: 3em; }
+/* Abstract glow orb */
+.orb { --ox: 0px; --oy: 0px; position: relative; justify-self: center; width: min(460px, 100%); aspect-ratio: 1; }
+.orb > span { position: absolute; pointer-events: none; }
+.orb__blob { inset: 8%; mix-blend-mode: screen; filter: blur(20px); will-change: transform, border-radius; }
+.orb__blob--a { background: radial-gradient(circle at 30% 30%, rgba(127, 216, 255, .9), var(--blue) 40%, rgba(11, 63, 168, .6) 60%, transparent 74%); animation: morph-a 14s ease-in-out infinite alternate, spin 40s linear infinite; translate: calc(var(--ox) * .6) calc(var(--oy) * .6); transition: translate 1.2s var(--ease); }
+.orb__blob--b { inset: 14%; background: radial-gradient(circle at 70% 45%, #9B8CFF, var(--indigo) 38%, transparent 68%); opacity: .9; animation: morph-b 17s ease-in-out infinite alternate, spin 55s linear infinite reverse; translate: calc(var(--ox) * -.3) calc(var(--oy) * -.3); transition: translate 1.4s var(--ease); }
+.orb__blob--c { inset: 20% 4% 4% 20%; background: radial-gradient(circle at 50% 60%, var(--cyan), rgba(21, 133, 232, .6) 40%, transparent 70%); opacity: .7; animation: morph-c 12s ease-in-out infinite alternate, spin 30s linear infinite; translate: calc(var(--ox) * .9) calc(var(--oy) * .9); transition: translate 1s var(--ease); }
+.orb__core { inset: 38%; opacity: .75; border-radius: 50%; background: radial-gradient(circle at 45% 40%, rgba(255, 255, 255, .95), rgba(165, 227, 255, .55) 30%, transparent 70%); filter: blur(14px); animation: breathe 7s ease-in-out infinite; translate: calc(var(--ox) * -.4) calc(var(--oy) * -.4); transition: translate 1.2s var(--ease); }
+.orb__ring { inset: 0; border-radius: 50%; border: 1px solid rgba(165, 227, 255, .2);
+  -webkit-mask: conic-gradient(from 0deg, transparent 0 15%, #000 35%, transparent 55% 70%, #000 85%, transparent); mask: conic-gradient(from 0deg, transparent 0 15%, #000 35%, transparent 55% 70%, #000 85%, transparent);
+  box-shadow: 0 0 40px rgba(63, 208, 255, .15) inset; animation: spin 24s linear infinite; }
+@keyframes morph-a { 0% { border-radius: 42% 58% 62% 38% / 45% 40% 60% 55%; } 50% { border-radius: 58% 42% 38% 62% / 60% 55% 45% 40%; } 100% { border-radius: 50% 50% 45% 55% / 38% 62% 38% 62%; } }
+@keyframes morph-b { 0% { border-radius: 60% 40% 45% 55% / 50% 60% 40% 50%; } 50% { border-radius: 40% 60% 60% 40% / 40% 45% 55% 60%; } 100% { border-radius: 55% 45% 40% 60% / 62% 38% 62% 38%; } }
+@keyframes morph-c { 0% { border-radius: 50% 50% 60% 40% / 40% 60% 40% 60%; } 100% { border-radius: 38% 62% 45% 55% / 55% 45% 60% 40%; } }
+@keyframes breathe { 50% { opacity: .45; scale: 1.15; } }
+.motion-paused .orb span { animation-play-state: paused; }
+@media (max-width: 960px) { .orb { position: absolute; z-index: -1; right: -22%; top: 24px; width: min(340px, 80vw); opacity: .55; } }
 
 /* =========================================================
    Logo strip
