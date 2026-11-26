@@ -136,7 +136,7 @@ AW.writing = [
    tags drive the skill filter on the CV page. */
 AW.cv = [
   {
-    org: 'Accenture Next Gen Engineering', role: 'Senior Design Consultant', from: 'Jun 2022', to: null,
+    org: 'Accenture Software & Platform Engineering', role: 'Senior Design Consultant', from: 'Jun 2022', to: null,
     tags: ['Leadership', 'AI', 'Product', 'Systems'],
     notes: [
       'National Product Design Discipline Lead: leading the practice community, learning pathways and team up-skilling.',
