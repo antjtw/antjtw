@@ -93,7 +93,7 @@ AW.quests = [
   },
   {
     id: 'ynepf', type: 'side', status: 'active', featured: true, hue: 195,
-    sector: 'sport', title: 'YNE Powerlifting', org: 'YNE Powerlifting Federation', year: 'Ongoing',
+    sector: 'sport', title: 'Yorkshire and North East Powerlifting Federation', org: 'Yorkshire and North East Powerlifting Federation', year: 'Ongoing',
     summary: 'Transforming a regional, volunteer-run powerlifting federation.',
     impact: 'Co-Chair, leading strategy and the digital experience.',
     tags: ['Transformation', 'Strategy'],
@@ -131,27 +131,59 @@ AW.writing = [
   { kind: 'Course',   title: 'AI for design leaders', meta: 'In the works', year: '', soon: true }
 ];
 
-/* ---------- CV ---------- */
+/* ---------- CV ----------
+   Accenture is a consultancy, so client roles sit inside it (clients[]).
+   tags drive the skill filter on the CV page. */
 AW.cv = [
-  { org: 'NHS England', role: 'UCD Lead', from: 2026, to: null, tags: ['Leadership', 'AI'],
-    notes: ['Leading user-centred design on the replacement for e-RS Advice and Guidance.', 'Built agentic tooling for spec generation in the GOV.UK Prototype Kit.'] },
-  { org: 'AstraZeneca', role: 'Lead Designer, AI Transform', via: 'Accenture', from: 2025, to: 2026, tags: ['AI', 'Leadership'],
-    notes: ['Design lead on an enterprise AI transformation programme.'] },
-  { org: 'Westfield Health', role: 'Lead UX Designer', via: 'Accenture', from: 2023, to: 2025, tags: ['Product', 'Systems'],
-    notes: ['One-person UX team on a first-to-market broker platform.', 'Design practice and design system from zero.'] },
-  { org: 'Accenture', role: 'Senior Design Consultant', from: 2022, to: null, tags: ['Leadership'],
-    notes: ['Line manager to seven designers across seniorities.', 'Practice contribution and AI upskilling (Make/Shift).'] },
-  { org: 'Ministry of Defence', role: 'Senior UX Designer', via: 'Accenture', from: 2022, to: 2023, tags: ['Product'],
-    notes: ['Discovery and pitch work.'] },
-  { org: 'UK Health Security Agency', role: 'Senior Interaction Designer', via: 'Accenture', from: 2022, to: 2022, tags: ['Product', 'Systems'],
-    notes: ['80% reduction in average reporting times across NHS Trusts.', 'Extended the GDS Design System for clinical workflows.'] },
-  { org: 'BT Consumer (EE)', role: 'Lead Product Designer', from: 2019, to: 2022, tags: ['Product', 'Leadership'],
-    notes: ['+31% traffic, +19% conversion, +0.7% direct channel share on Add Mobile.', '29% faster task completion on SIM-only plans.', 'Mentoring, Loop design system, Figma adoption.'] },
-  { org: 'Sky', role: 'UI Designer', from: 2018, to: 2019, tags: ['Craft', 'Systems'],
-    notes: ['Broadband & Talk Hub redesign.', 'Contributor to the Polaris design system.'] },
-  { org: 'Bolser', role: 'UX/UI Designer', from: 2016, to: 2018, tags: ['Craft'], notes: [] },
-  { org: 'United by Design', role: 'Junior Graphic Designer', from: 2015, to: 2016, tags: ['Craft'], notes: [] },
-  { org: 'Bloom (Jaywing)', role: 'Junior Creative', from: 2014, to: 2015, tags: ['Craft'], notes: [] }
+  {
+    org: 'Accenture Next Gen Engineering', role: 'Senior Design Consultant', from: 'Jun 2022', to: null,
+    tags: ['Leadership', 'AI', 'Product', 'Systems'],
+    notes: [
+      'National Product Design Discipline Lead: leading the practice community, learning pathways and team up-skilling.',
+      'Teaching Lead for Modern Health Practitioners, AI up-skilling for the UK Health accounts.',
+      'Lead for outreach with Ahead Partnership.',
+      'Mentoring junior and mid-weight designers to improve their craft and professional skills.'
+    ],
+    clients: [
+      { org: 'NHS England (Referrals and Appointments)', role: 'UCD Cluster Lead', from: 'Jan 2026', to: null, tags: ['Leadership', 'AI'],
+        notes: ['Joined as Lead Interaction Designer, moonlighting as a User Researcher, before stepping up to UCD Cluster Lead.', 'Leading user-centred design on the replacement for e-RS Advice and Guidance.', 'Built agentic tooling for spec generation in the GOV.UK Prototype Kit.'] },
+      { org: 'AstraZeneca', role: 'Lead UX Designer', from: 'Oct 2025', to: 'Jan 2026', tags: ['AI', 'Leadership'],
+        notes: ['Lead UX Designer on an AI pitch.'] },
+      { org: 'Westfield Health', role: 'Lead UX Designer', from: 'Mar 2023', to: 'Sep 2025', tags: ['Product', 'Systems'],
+        notes: ['One-person UX team within a software migration project.', 'Introduced and cultivated user-led design as a generalist designer.', 'Built the design practice and design system from zero.'] },
+      { org: 'Ministry of Defence (Armed Forces Recruitment Programme)', role: 'Senior UX Designer', from: 'Nov 2022', to: 'Jan 2023', tags: ['Product'],
+        notes: ['Worked through the discovery and pitch process of a new app.', 'Mentored junior and mid-weight UX designers.'] },
+      { org: 'UK Health (NHS Test & Trace Programme)', role: 'Senior Interaction Designer', from: 'Jun 2022', to: 'Nov 2022', tags: ['Product', 'Systems'],
+        notes: ['Worked in the Organisation Testing team.', 'Produced end-to-end experiences for the Test & Trace portal on GOV.UK with the wider programme team.', 'Delivered experiences for testing using the GOV.UK Prototype Kit.', 'Worked with and contributed to the GDS Design System.', '80% reduction in average reporting times across NHS Trusts.'] }
+    ]
+  },
+  { org: 'BT Consumer (EE)', role: 'Lead Product Designer', from: 'Nov 2019', to: 'Jun 2022', tags: ['Product', 'Leadership', 'Systems'],
+    notes: ['Delivered high-performing, design-led changes that significantly increased customer satisfaction and revenue.', '+31% traffic, +19% conversion and +0.7% direct channel share on Add Mobile; 29% faster task completion on SIM-only plans.', 'Championed user-led design and pushed design culture.', 'Mentored junior and mid-weight designers.', 'Led tool (Figma) and new methodology adoption.', 'Helped create a multi-brand design system (Loop).'] },
+  { org: 'Sky', role: 'UI Designer', from: 'May 2018', to: 'Nov 2019', tags: ['Craft', 'Systems'],
+    notes: ['Worked across Sky.com’s digital service platforms, My Account and Help.', 'Co-designed with UX designers and writers.', 'Helped establish and contribute to Sky.com’s Polaris design system.'] },
+  { org: 'Bolser', role: 'UX/UI Designer', from: 'Jun 2016', to: 'May 2018', tags: ['Craft'],
+    notes: ['Worked with a range of clients on both app and web projects.'] },
+  { org: 'United by Design', role: 'Junior Graphic Designer', from: 'Jan 2015', to: 'Jun 2016', tags: ['Craft'], notes: [] },
+  { org: 'Bloom (Jaywing)', role: 'Junior Creative', from: 'May 2014', to: 'Jan 2015', tags: ['Craft'], notes: [] }
 ];
+
+AW.education = [
+  { org: 'Nielsen Norman Group (NN/g)', detail: 'UX Certification (five courses and exams)',
+    notes: ['The Human Mind and Usability', 'Discoveries: Building the Right Thing', 'Storytelling to Present UX Work', 'The One-Person UX Team', 'Becoming a UX Strategist'] },
+  { org: 'Leeds Arts University', detail: 'BA (Hons) Graphic Design · Upper Second Class Honours (2:1)', notes: [] },
+  { org: 'York College', detail: 'ND3 Graphic Design · Triple Distinction', notes: [] }
+];
+
+AW.bonus = [
+  { org: 'Mentoring', detail: '',
+    notes: ['Outside work, I regularly mentor two design professionals. I’ve guided both since their junior years, helping them build technical skills, design thinking, strategy and soft skills such as stakeholder management. One of them recently stepped up to Lead Designer.'], prose: true },
+  { org: 'MTFBWY RPG', detail: 'TTRPG & UX Designer',
+    notes: ['Primary game designer on a new tabletop roleplaying game.', 'Released alpha and beta versions, and iterated based on feedback.', 'Produced rules documentation and collateral, including printable and digital prototypes.'] },
+  { org: 'Yorkshire and North East Powerlifting Federation', detail: 'Co-Chair (Strategy & Digital Experience)',
+    notes: ['Applied UX experience to improve competition registration.', 'Graphic design: banners, social media and printed collateral.', 'Developed a franchise model to reduce stress on volunteers and increase revenue.'] }
+];
+
+/* Like in any good roleplaying game, the tools I'm proficient in */
+AW.proficiencies = ['Figma', 'FigJam', 'Sketch', 'Adobe XD', 'GOV.UK Prototype Kit', 'Miro', 'Photoshop', 'Illustrator', 'After Effects'];
 
 AW.clients = ['NHS England', 'AstraZeneca', 'Ministry of Defence', 'GOV.UK', 'UKHSA', 'Accenture', 'EE', 'BT', 'Sky', 'Westfield Health'];

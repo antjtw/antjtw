@@ -283,23 +283,41 @@
     }).join('');
   }
 
-  /* CV */
+  /* CV: Accenture holds its client roles; filter works on both levels */
+  function cvItem(r, open, child) {
+    var yrs = r.from + ' – ' + (r.to || 'Present');
+    var kids = r.clients && r.clients.length
+      ? '<ol class="tl__clients">' + r.clients.map(function (c) { return cvItem(c, false, true); }).join('') + '</ol>' : '';
+    return '<li data-tags="' + esc(r.tags.join('|')) + '"' + (child ? '' : ' data-reveal') + '><details class="tl' + (r.to ? '' : ' tl--current') + (child ? ' tl--client' : '') + '"' + (open ? ' open' : '') + '>' +
+      '<summary><span class="tl__org">' + esc(r.org) + '</span><span class="tl__years">' + esc(yrs) + '</span><span class="tl__role">' + esc(r.role) + '</span></summary>' +
+      (r.notes.length ? '<ul class="tl__notes">' + r.notes.map(function (n) { return '<li>' + esc(n) + '</li>'; }).join('') + '</ul>' : '') +
+      kids + '</details></li>';
+  }
   var cvHost = $('[data-cv]');
   if (cvHost && AW.cv) {
-    cvHost.innerHTML = AW.cv.map(function (r, i) {
-      var yrs = r.from === r.to ? String(r.from) : r.from + ' – ' + (r.to || 'Now');
-      return '<li data-tags="' + esc(r.tags.join('|')) + '" data-reveal><details class="tl' + (r.to ? '' : ' tl--current') + '"' + (i === 0 ? ' open' : '') + '>' +
-        '<summary><span class="tl__org">' + esc(r.org) + '</span><span class="tl__years">' + yrs + '</span><span class="tl__role">' + esc(r.role) + (r.via ? ', via ' + esc(r.via) : '') + '</span></summary>' +
-        (r.notes.length ? '<ul class="tl__notes">' + r.notes.map(function (n) { return '<li>' + esc(n) + '</li>'; }).join('') + '</ul>' : '') + '</details></li>';
-    }).join('');
+    cvHost.innerHTML = AW.cv.map(function (r, i) { return cvItem(r, i === 0, false); }).join('');
     var cvTabs = $('[data-cv-filter]');
     if (cvTabs) cvTabs.addEventListener('click', function (e) {
       var b = e.target.closest('button'); if (!b) return;
+      var f = b.dataset.filter;
       $$('button', cvTabs).forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
-      $$(':scope > li', cvHost).forEach(function (li) { li.hidden = !(b.dataset.filter === 'all' || li.dataset.tags.split('|').indexOf(b.dataset.filter) > -1); });
+      $$('li[data-tags]', cvHost).forEach(function (li) { li.hidden = !(f === 'all' || li.dataset.tags.split('|').indexOf(f) > -1); });
+      if (f !== 'all') $$('.tl', cvHost).forEach(function (d) { if (d.querySelector('.tl__clients li:not([hidden])')) d.open = true; });
       if (motion) ScrollTrigger.refresh();
     });
   }
+  $$('[data-entries]').forEach(function (host) {
+    var list = AW[host.dataset.entries] || [];
+    host.innerHTML = list.map(function (e) {
+      return '<article class="entry" data-reveal><h3 class="entry__org">' + esc(e.org) + '</h3>' +
+        (e.detail ? '<p class="entry__detail">' + esc(e.detail) + '</p>' : '') +
+        (e.prose ? e.notes.map(function (n) { return '<p class="entry__prose">' + esc(n) + '</p>'; }).join('')
+                 : (e.notes.length ? '<ul class="entry__notes">' + e.notes.map(function (n) { return '<li>' + esc(n) + '</li>'; }).join('') + '</ul>' : '')) +
+        '</article>';
+    }).join('');
+  });
+  var pills = $('[data-proficiencies]');
+  if (pills && AW.proficiencies) pills.innerHTML = AW.proficiencies.map(function (t) { return '<li class="tag" data-t="' + (hash(t) % 5) + '">' + esc(t) + '</li>'; }).join('');
 
   /* Contact: compose an email (no backend yet) */
   var form = $('#contact-form');
