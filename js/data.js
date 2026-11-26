@@ -126,7 +126,7 @@ AW.practice = [
 AW.writing = [
   { kind: 'Writing',  title: 'On AI: a sceptic’s working position', meta: 'Essay', year: '2026', href: 'ai-policy.html' },
   { kind: 'Speaking', title: 'Agentic prototyping in the NHS', meta: 'Internal talk', year: '2026' },
-  { kind: 'Teaching', title: 'Mentoring designers', meta: 'Seven reports, two mentees', year: 'Ongoing' },
+  { kind: 'Teaching', title: 'Leading and mentoring designers', meta: 'People Lead for two, seven reports, three mentees', year: 'Ongoing' },
   { kind: 'Writing',  title: 'Designing without users', meta: 'Coming soon', year: '', soon: true },
   { kind: 'Course',   title: 'AI for design leaders', meta: 'In the works', year: '', soon: true }
 ];
@@ -142,7 +142,8 @@ AW.cv = [
       'National Product Design Discipline Lead: leading the practice community, learning pathways and team up-skilling.',
       'Teaching Lead for Modern Health Practitioners, AI up-skilling for the UK Health accounts.',
       'Lead for outreach with Ahead Partnership.',
-      'Mentoring junior and mid-weight designers to improve their craft and professional skills.'
+      'People Lead for two Accenture designers.',
+      'Line manager to seven on-account reports, covering pastoral care and mentoring.'
     ],
     clients: [
       { org: 'NHS England (Referrals and Appointments)', role: 'UCD Cluster Lead', from: 'Jan 2026', to: null, tags: ['Leadership', 'AI'],
@@ -176,7 +177,7 @@ AW.education = [
 
 AW.bonus = [
   { org: 'Mentoring', detail: '',
-    notes: ['Outside work, I regularly mentor two design professionals. I’ve guided both since their junior years, helping them build technical skills, design thinking, strategy and soft skills such as stakeholder management. One of them recently stepped up to Lead Designer.'], prose: true },
+    notes: ['Outside work, I mentor three design professionals on everything from careers to craft. I’ve guided some since their junior years, helping them build technical skills, design thinking, strategy and soft skills such as stakeholder management. One recently stepped up to Lead Designer.'], prose: true },
   { org: 'MTFBWY RPG', detail: 'TTRPG & UX Designer',
     notes: ['Primary game designer on a new tabletop roleplaying game.', 'Released alpha and beta versions, and iterated based on feedback.', 'Produced rules documentation and collateral, including printable and digital prototypes.'] },
   { org: 'Yorkshire and North East Powerlifting Federation', detail: 'Co-Chair (Strategy & Digital Experience)',

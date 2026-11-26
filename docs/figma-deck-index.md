@@ -9,11 +9,11 @@ Node IDs are for exporting images (Figma → right-click → Export, or the Figm
 
 | Topic | Deck says | Site says |
 |---|---|---|
-| EE Add Mobile traffic uplift | **21%** (AW 14) | **31%** (home, case study, CV) |
+| EE Add Mobile traffic uplift | **21%** (AW 14) | **31%** (home, case study, CV). Resolved: keep 31% |
 | EE Add Mobile CSAT | 6.5 CSAT score (AW 14) | not mentioned |
 | Westfield task time | **45% reduction** in task time vs the manual process, testing with pseudo-users (AW 21) | not mentioned |
 | Westfield launch | "set to launch in beta later this year" (AW 24) | launched into beta (case study) |
-| Mentoring | mentors **3** junior/mid-weight designers (AW 25) | mentors **two** (CV) |
+| Mentoring | mentors **3** junior/mid-weight designers (AW 25) | Resolved: People Lead for two at Accenture, seven on-account reports (line management), three external mentees |
 
 ---
 
