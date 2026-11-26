@@ -317,7 +317,7 @@ a.wrow:hover { background: var(--l-card); padding-left: 18px; }
 .wrow__go { color: var(--blue); transition: transform .3s var(--ease); }
 a.wrow:hover .wrow__go { transform: translateX(4px); }
 .wrow--soon .wrow__title, .wrow--soon .wrow__kind { color: var(--l-faint); }
-@media (max-width: 700px) { .wrow { grid-template-columns: 1fr auto; gap: 4px 16px; } .wrow__kind { grid-column: 1 / -1; } .wrow__meta { grid-column: 1; } .wrow__go { grid-row: 2; grid-column: 2; } }
+@media (max-width: 700px) { .wrow { grid-template-columns: minmax(0, 1fr) auto; gap: 4px 16px; } .wrow__kind { grid-column: 1 / -1; } .wrow__meta { grid-column: 1; white-space: normal; } .wrow__go { grid-row: 2; grid-column: 2; } }
 
 /* =========================================================
    CV
