@@ -51,8 +51,6 @@ NEW = dict(
 
 <h2 data-reveal>And yet</h2>
 <p>None of this cancels the scepticism. I still don’t know what it all means for the planet, and I don’t think that question should go away. But the tool is here, and it’s at its best when it gives people their time back for the human work.</p>
-
-<p class="essay-note">How this was written: I talked these thoughts through out loud, and used AI to tidy and structure the transcript. The views and the words are mine. My earlier position is in <a href="../ai-policy.html">On AI: a sceptic’s working position</a>.</p>
 ''',
     more=('ai-policy.html', 'On AI: a sceptic’s working position', 'Earlier in 2026'),
 )
